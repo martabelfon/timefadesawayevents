@@ -1,7 +1,14 @@
+'use client';
+
+import TemporalLanding from '@/templates/temporalLanding';
+import I18nProvider from '@/components/i18nProvider';
+import NavBar from '@/molecules/navbar';
+
 export default function Home() {
-    return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <p>Estamos trabajando en ello</p>
-    </div>
+  return (
+    <I18nProvider>
+      <NavBar isScrolled={false} />
+      <TemporalLanding />
+    </I18nProvider>
   );
 }
