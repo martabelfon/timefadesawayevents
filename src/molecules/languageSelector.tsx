@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
+import i18n from '@/lib/i18n';
 
 const LanguageSelector: React.FC = () => {
-    const { i18n } = useTranslation();
+    
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
     const languageNames: { [key: string]: string } = {

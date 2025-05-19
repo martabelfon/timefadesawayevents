@@ -1,0 +1,11 @@
+{
+"contact": "Contact me",
+"name": "Name",
+"email": "Email",
+"message": "Message",
+"sendMessage": "Send message",
+"error1": "Error sending",
+"error2": "Server error",
+"confirmation": "Message sent",
+"status": "Sending..."
+}
