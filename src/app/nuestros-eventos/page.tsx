@@ -60,10 +60,10 @@ const eventos = eventosData.filter(evento => {
   const fechaEvento = new Date(parseInt(anio), mes, dia);
   const hoy = new Date();
   hoy.setHours(0,0,0,0);
-  return fechaEvento >= hoy;
+  return fechaEvento < hoy;
 });
 
-const ProximosEventosPage = () => {
+const NuestrosEventos = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const ProximosEventosPage = () => {
       <NavBar isScrolled={isScrolled} />
       <section
         id="nuestros-eventos"
-        className="bg-gradient-to-b from-[#FFF8E1] via-[#FFFDF6] to-[#FFF8E1] text-gray-900 pt-[100px] pb-20 min-h-screen w-full px-2 sm:px-6"
+        className="bg-gray-950 text-gray-100 pt-[100px] pb-20 min-h-screen w-full px-2 sm:px-6"
       >
         <div className="text-center mb-14">
           <motion.h2 
@@ -89,9 +89,9 @@ const ProximosEventosPage = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[color:var(--color-principal)] via-[color:var(--color-principal)] to-[color:var(--color-principal)] bg-clip-text text-transparent drop-shadow-lg mb-2"
           >
-            Próximos Eventos
+            Nuestros Eventos
           </motion.h2>
-          <p className="text-lg md:text-xl text-[color:var(--color-principal)] max-w-2xl mx-auto mt-2">No te pierdas los próximos eventos y actividades especiales.</p>
+          <p className="text-lg md:text-xl text-[color:var(--color-principal)] max-w-2xl mx-auto mt-2">Descubre los eventos que hemos organizado y revive los mejores momentos.</p>
         </div>
 
         <div className="grid gap-12 md:gap-16 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
@@ -104,7 +104,7 @@ const ProximosEventosPage = () => {
             viewport={{ once: true }}
             className="flex flex-col bg-white/90 rounded-2xl shadow-lg p-5 md:p-7 border border-[color:var(--color-principal)]/30 hover:scale-[1.03] transition-transform duration-300"
           >
-            <div className="relative w-full h-56 rounded-xl overflow-hidden mb-4">
+            <div className="relative w-full h-56 rounded-xl overflow-hidden mb-4 border-2 border-[color:var(--color-principal)]/40">
               <Image
                 src={evento.imagen && evento.imagen.startsWith('/images/eventos/') ? evento.imagen : `/images/eventos/${evento.imagen}`}
                 alt={`Imagen del ${evento.titulo}`}
@@ -132,4 +132,4 @@ const ProximosEventosPage = () => {
   );
 };
 
-export default ProximosEventosPage;
+export default NuestrosEventos;

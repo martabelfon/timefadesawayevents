@@ -21,7 +21,7 @@ const LanguageSelector: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-row text-sm space-x-2 ">
+        <div className="flex flex-row text-xs space-x-2 ">
             <button
                 onClick={() => changeLanguage('es')}
                 className={`rounded-lg px-3 py-1 ${
