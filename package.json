@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "^10.0.8",
+    "@react-three/drei": "^9.88.6",
     "@react-three/fiber": "^9.1.2",
     "@vercel/speed-insights": "^1.2.0",
     "clsx": "^2.1.1",
