@@ -15,6 +15,7 @@ import React from 'react'
 export default function LandingPage() {
   return (
     <div className='bg-gray-950 w-full'>
+      <p>Hola</p>
       <AuroraHero />
       <Contador />
       <EventosLanding />
