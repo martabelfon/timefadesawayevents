@@ -4,16 +4,58 @@ export default function NuestraHistoriaPage() {
   return (
     <div>
       <NavBar isScrolled={false} />
-      <section className="bg-gradient-to-b from-[#FFF8E1] via-[#FFFDF6] to-[#FFF8E1] text-gray-900 min-h-screen w-full px-2 sm:px-6 pt-[100px] pb-20 flex flex-col items-center justify-center">
-        <div className="max-w-3xl w-full flex flex-col gap-8 bg-white/90 rounded-2xl shadow-lg p-6 md:p-10 border border-[color:var(--color-principal)]/30">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-[color:var(--color-principal)] text-center mb-4 drop-shadow-md">Nuestra Historia</h1>
-          <p className="text-gray-700 text-lg md:text-xl text-center leading-relaxed">
-            Todo empezó en el 1990, con la Universidad en Mallorca. Enrique era uno de los encargados del transporte y yo, Ramón, me apunté como voluntario para hacer de conductor.<br/><br/>
-            Un año después, aproximadamente, coincidimos en el rodaje de una película para la BBC, (en la que Daniel Craig era el protagonista), Enrique como Coordinador de escenas bélicas y yo como Actor.<br/><br/>
-            A partir de ahí, fuimos coincidiendo en diferentes eventos, tanto deportivos como musicales, (Isladecanta, Open Mallorca de Tenis, Campeonatos de Judo) hasta que en el 2002, coincidimos Enrique, Alberto y yo , encargándonos de la Seguridad de un macro festival donde actuó Oasis.<br/><br/>
-            Hemos seguido trabajando juntos en varias ocasiones, una de ellas el 70 aniversario de Neil Young y aunque, Enrique y Alberto en Mallorca y yo en Barcelona, esto no ha influido en qué sigamos en contacto y trabajando como el primer día.<br/><br/>
-            Una vez llegados a este punto, y viendo que no se nos da mal del todo, hemos decidido hacerlo en serio y dedicarnos de pleno, porque el tiempo se nos esfuma (Time Fades Away).
-          </p>
+      <section className="bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white min-h-screen px-4 sm:px-8 pt-[100px] pb-20 flex flex-col items-center overflow-hidden">
+        <div className="max-w-4xl w-full rounded-2xl shadow-lg p-6 md:p-10 border border-[color:var(--color-principal)]/30 backdrop-blur-sm">
+          <h1 className="gendy-font text-4xl md:text-5xl font-extrabold text-[color:var(--color-principal)] text-center mb-10 drop-shadow-md">
+            Nuestra Historia
+          </h1>
+
+          <div className="flex flex-col gap-10">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-[color:var(--color-principal)] mb-2">
+                Los Inicios (1990)
+              </h2>
+              <p className="text-lg leading-relaxed">
+                Todo comenzó en 1990, en la Universidad de Mallorca. Enrique se encargaba del transporte, y yo, Ramón, me ofrecí como voluntario para conducir. Sin saberlo, aquel gesto marcó el inicio de una gran historia.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-[color:var(--color-principal)] mb-2">
+                Primer Proyecto en Común
+              </h2>
+              <p className="text-lg leading-relaxed">
+                Un año más tarde, coincidimos en el rodaje de una película para la BBC protagonizada por Daniel Craig. Enrique coordinaba escenas bélicas y yo participaba como actor. Fue nuestro primer proyecto profesional compartido.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-[color:var(--color-principal)] mb-2">
+                Eventos y Festivales
+              </h2>
+              <p className="text-lg leading-relaxed">
+                Desde entonces, nos cruzamos en eventos deportivos y musicales: Isladecanta, Open de Tenis de Mallorca, campeonatos de judo... Hasta que en 2002, junto con Alberto, coordinamos la seguridad de un macrofestival donde tocó Oasis.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-[color:var(--color-principal)] mb-2">
+                Un Lazo que Perdura
+              </h2>
+              <p className="text-lg leading-relaxed">
+                Aunque Enrique y Alberto siguen en Mallorca y yo en Barcelona, nunca hemos perdido el contacto. Seguimos trabajando juntos con la misma pasión de siempre, como en el 70 aniversario de Neil Young.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-[color:var(--color-principal)] mb-2">
+                El Presente
+              </h2>
+              <p className="text-lg leading-relaxed">
+                Hoy, decidimos dar un paso más. Apostamos por dedicarnos de lleno a esto que tanto nos apasiona. Porque el tiempo vuela —Time Fades Away— y queremos aprovecharlo haciendo lo que amamos.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>

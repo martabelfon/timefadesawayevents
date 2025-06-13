@@ -1,11 +1,16 @@
 {
-"contact": "Me contacter",
-"name": "Nom",
-"email": "E-mail",
-"message": "Message",
-"sendMessage": "Envoyer le message",
-"error1": "Erreur d'envoi",
-"error2": "Erreur serveur",
-"confirmation": "Message envoyé",
-"status": "Envoi..."
+  "contact": "Contactez-nous",
+  "name": "Nom",
+  "email": "E-mail",
+  "message": "Message",
+  "sendMessage": "Envoyer le message",
+  "error1": "Erreur lors de l'envoi",
+  "error2": "Erreur du serveur",
+  "confirmation": "Message envoyé",
+  "status": "Envoi en cours...",
+  "title": "Vous l’imaginez, nous le réalisons.",
+  "description1": "Vous avez des questions ou besoin de plus d’informations ?",
+  "description2": "Remplissez le formulaire et nous serons ravis de vous aider. Que vous ayez une idée précise ou que vous cherchiez des conseils, nous sommes là pour vous accompagner.",
+  "description3": "Nous vous contacterons dans les plus brefs délais pour vous offrir une assistance personnalisée.",
+  "description4": "Nous sommes là pour vous aider à concrétiser votre projet."
 }

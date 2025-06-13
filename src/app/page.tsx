@@ -1,6 +1,6 @@
 'use client';
 
-import LandingPage from '@/templates/langingPage';
+import LandingPage from '@/templates/landingPage';
 import I18nProvider from '@/components/i18nProvider';
 import NavBar from '@/molecules/navbar';
 

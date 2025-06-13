@@ -1,7 +1,8 @@
 'use client';
 
 import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
-import FormField from '@/molecules/FormField';
+import BlurText from '@/atoms/titleLandingBlur';
+import FormField from '@/molecules/formField';
 import NavBar from '@/molecules/navbar';
 import { Stars } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
@@ -49,20 +50,21 @@ export default function ContactPage() {
         </Canvas>
       </div>
       <NavBar isScrolled={false} />
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-6xl mx-auto">
-        <div className="w-full md:w-7/12 flex flex-col items-center mb-8 md:mb-0">
-          <p className="text-center text-lg sm:text-xl md:text-2xl  mb-4">¿Estás organizando un evento y necesitas apoyo profesional?</p>
-          <p className="text-center text-lg sm:text-xl md:text-2xl  mb-4">Completa el formulario y cuéntanos lo que tienes en mente. Ya sea una boda, evento corporativo, fiesta privada o cualquier otra celebración, estamos listos para ayudarte a hacerlo realidad.</p>
-          <p className="text-center text-lg sm:text-xl md:text-2xl  mb-4">📅 Cuéntanos la fecha, tipo de evento, número de invitados y cualquier detalle especial que debamos saber.</p>
-          <p className="text-center text-lg sm:text-xl md:text-2xl  mb-4">Nuestro equipo se pondrá en contacto contigo lo antes posible para brindarte una propuesta personalizada.</p>
-          <p className="text-center text-lg sm:text-xl md:text-2xl  mb-4">✨ ¡Hagamos que tu evento sea inolvidable!</p>
-        </div>
+      <BlurText text={t('title')} className="flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
+      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-6xl mx-auto mt-10">
+      <div className="w-full md:w-7/12 flex flex-col items-center mb-8 md:mb-0">
+        
+        <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description1')}</p>
+        <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description2')}</p>
+        <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description3')}</p>
+        <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description4')}</p>
+      </div>
         <div className="w-full md:w-5/12 flex justify-center">
           <form
             onSubmit={handleSubmit}
-            className="bg-white shadow-md rounded-2xl p-4 sm:p-6 w-full max-w-md"
+            className="bg-gray-950 shadow-md rounded-2xl p-4 sm:p-6 w-full max-w-md"
           >
-            <h1 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">{t('contact')}</h1>
+            <h1 className="text-xl sm:text-2xl font-bold mb-4 text-[color:var(--color-principal)]">{t('contact')}</h1>
             <FormField
               inputId="name"
               label={t('name')}
@@ -86,16 +88,16 @@ export default function ContactPage() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="block py-2.5 px-0 w-full text-base sm:text-lg text-[#16adfa] font-bold bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[#16adfa] focus:outline-none focus:ring-0 focus:border-[#16adfa] peer resize-none"
+                className="block py-2.5 px-0 w-full text-base sm:text-lg text-white  font-bold bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-[color:var(--color-principal)] focus:outline-none focus:ring-0 focus:border-[color:var(--color-principal)] peer resize-none"
                 rows={4}
               />
-              <label className="peer-focus:font-medium absolute text-base sm:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-[#16adfa] peer-focus:dark:text-[#16adfa] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              <label className="peer-focus:font-medium absolute text-base sm:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-[color:var(--color-principal)] peer-focus:dark:text-[color:var(--color-principal)] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 {t('message')}
               </label>
             </label>
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 mt-3 text-base sm:text-lg"
+              className="w-full bg-[color:var(--color-principal)]  text-gray-950 text-bold py-2 rounded-md hover:bg-[color:var(--color-principal)]  mt-3 text-base sm:text-lg"
             >
               {t('sendMessage')}
             </button>

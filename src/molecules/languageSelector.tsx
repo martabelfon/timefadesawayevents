@@ -1,11 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
-// import { useTranslation } from 'react-i18next';
+import React, { useState, useEffect } from 'react';
 import i18n from '@/lib/i18n';
 
 const LanguageSelector: React.FC = () => {
-    
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+
+    useEffect(() => {
+        const handleLangChange = (lng: string) => setSelectedLanguage(lng);
+        i18n.on('languageChanged', handleLangChange);
+        return () => i18n.off('languageChanged', handleLangChange);
+    }, []);
 
     const languageNames: { [key: string]: string } = {
         es: "ES",
@@ -17,7 +21,6 @@ const LanguageSelector: React.FC = () => {
 
     const changeLanguage = (lang: string) => {
         i18n.changeLanguage(lang);
-        setSelectedLanguage(lang);
     };
 
     return (
@@ -26,7 +29,7 @@ const LanguageSelector: React.FC = () => {
                 onClick={() => changeLanguage('es')}
                 className={`rounded-lg px-3 py-1 ${
                     selectedLanguage === 'es'
-                        ? 'text-white font-bold border-b-2 border-white'
+                        ? 'text-white font-bold border-b-2 border-[color:var(--color-principal)]'
                         : 'text-gray-300'
                 }`}
             >
@@ -36,7 +39,7 @@ const LanguageSelector: React.FC = () => {
                 onClick={() => changeLanguage('en')}
                 className={`rounded-lg px-3 py-1 ${
                     selectedLanguage === 'en'
-                        ? 'text-white font-bold border-b-2 border-white'
+                        ? 'text-white font-bold border-b-2 border-[color:var(--color-principal)]'
                         : 'text-gray-300'
                 }`}
             >
@@ -46,7 +49,7 @@ const LanguageSelector: React.FC = () => {
                 onClick={() => changeLanguage('de')}
                 className={`rounded-lg px-3 py-1 ${
                     selectedLanguage === 'de'
-                        ? 'text-white font-bold border-b-2 border-white'
+                        ? 'text-white font-bold border-b-2 border-[color:var(--color-principal)]'
                         : 'text-gray-300'
                 }`}
             >
@@ -56,7 +59,7 @@ const LanguageSelector: React.FC = () => {
                 onClick={() => changeLanguage('fr')}
                 className={`rounded-lg px-3 py-1 ${
                     selectedLanguage === 'fr'
-                        ? 'text-white font-bold border-b-2 border-white'
+                        ? 'text-white font-bold border-b-2 border-[color:var(--color-principal)]'
                         : 'text-gray-300'
                 }`}
             >

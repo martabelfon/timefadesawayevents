@@ -2,6 +2,7 @@ export interface Evento {
   id: string;
   titulo: string;
   fecha: string;
+  ubicacion: string;
   descripcion: string;
   descripcion1?: string;
   descripcion2?: string;
@@ -20,6 +21,7 @@ export const eventos: Evento[] = [
   id: "1",
   titulo: "Mallorca Rusty Concert: Neil Young 70th",
   fecha: "12 Junio 2015",
+  ubicacion: "Lloseta - Mallorca",
   descripcion: "Concierto homenaje a Neil Young con músicos locales de Mallorca.",
   descripcion1: "Organizado por el W&Z Rustie Broken Arrow Club, con Wenry & Josep Zurdo como impulsores del evento.",
   descripcion2: "Evento gratuito, sin ánimo de lucro, con una programación densa y presentado por Jesús Ordovás.",
@@ -38,6 +40,7 @@ export const eventos: Evento[] = [
   id: "2",
   titulo: "40th Aniversario del disco Zuma – Neil Young",
   fecha: "30 Enero 2016",
+  ubicacion: "Lloseta - Mallorca",
   descripcion: "Celebración musical del 40º aniversario del emblemático álbum Zuma de Neil Young.",
   descripcion1: "Gracias a Maria Mrtn y Edu (La Red), el evento rindió tributo a este disco esencial tras el éxito del 70TH de Lloseta.",
   descripcion2: "Con entrada gratuita, reunió a una destacada selección de músicos locales y bandas afines.",
@@ -51,6 +54,7 @@ export const eventos: Evento[] = [
   id: "3",
   titulo: "Rusty Neil Young Concert – Presentación VII Rust Fest",
   fecha: "17 Junio 2016",
+  ubicacion: "Cádiz",
   descripcion: "Tributo musical a Neil Young y presentación del VII Rust Fest en Cádiz.",
   descripcion1: "Concierto especial para los seguidores de Neil Young celebrado en el 14 Rock Bar.",
   descripcion2: "Sirvió como antesala al VII Rust Fest de Bolonia (Cádiz), promoviendo el espíritu rustie.",
@@ -64,6 +68,7 @@ export const eventos: Evento[] = [
   id: "4",
   titulo: "Isladencanta 2001: el día que conocimos a los Strokes",
   fecha: "Julio 2001",
+  ubicacion: "Palma de Mallorca",
   descripcion: "Primer festival Isladencanta celebrado en Esporles, Mallorca, con un cartel espectacular que incluyó a bandas internacionales y emergentes como The Strokes, quienes ofrecieron su primer concierto en España.",
   descripcion1: "Tuvimos el privilegio de entrevistar a The Strokes antes de la publicación de su disco debut 'Is This It', en un momento histórico que marcó el inicio de una nueva era para la música indie estatal y local.",
   descripcion2: "Nos encargamos del montaje de escenarios, seguridad, transporte y logística integral, garantizando una organización técnica eficiente y un entorno seguro para artistas y asistentes.",
@@ -82,6 +87,7 @@ export const eventos: Evento[] = [
   id: "5",
   titulo: "I Freeworld Rockfest",
   fecha: "2 abril 2022",
+  ubicacion: "Madrid",
   descripcion: "Festival de rock celebrado en Madrid y Las Rozas, con dos días de conciertos y una amplia variedad de bandas.",
   descripcion1: "El evento se dividió en dos días y dos escenarios diferentes, ofreciendo acceso a ambos días con una única entrada.",
   descripcion2: "El primer día, en la Sala Rompeolas de Madrid, presentó un ambiente íntimo con actuaciones de Lobos Negros, Adhara & Ritman en set semi-acústico, y Nothingman, incluyendo un showcase y firma de discos de Lobos Negros.",
@@ -98,75 +104,5 @@ export const eventos: Evento[] = [
     "/images/eventos/eventoFreeWorldRockFest4.jpg"
   ],
   mostrarEnLanding: true
-},
-{
-  id: "6",
-  titulo: "Evento 1",
-  fecha: "5 junio 2025",
-  descripcion: "Este sería un evento de prueba para mostrar cómo se vería un evento futuro en la lista.",
-  descripcion1: "Descripción adicional del evento 1.",
-  descripcion2: "Más detalles sobre el evento 1.",
-  descripcion3: "Información extra sobre el evento 1.",
-  descripcion4: "Últimos detalles sobre el evento 1.",
-  imagen: "/images/eventos/eventoFreeWorldRockFest.jpg",
-  imagenes: [
-    "/images/eventos/eventoFreeWorldRockFest1.jpg",
-    "/images/eventos/eventoFreeWorldRockFest2.jpg",
-    "/images/eventos/eventoFreeWorldRockFest3.jpg",
-    "/images/eventos/eventoFreeWorldRockFest4.jpg"
-  ],
-  mostrarEnLanding: true
-},
-{
-  id: "7",
-  titulo: "Evento 2",
-  fecha: "5 junio 2026",
-  descripcion: "Este sería un evento de prueba para mostrar cómo se vería un evento futuro en la lista.",
-  descripcion1: "Descripción adicional del evento 1.",
-  descripcion2: "Más detalles sobre el evento 1.",
-  descripcion3: "Información extra sobre el evento 1.",
-  descripcion4: "Últimos detalles sobre el evento 1.",
-  imagen: "/images/eventos/eventoFreeWorldRockFest.jpg",
-  imagenes: [
-    "/images/eventos/eventoFreeWorldRockFest1.jpg",
-    "/images/eventos/eventoFreeWorldRockFest2.jpg",
-    "/images/eventos/eventoFreeWorldRockFest3.jpg",
-    "/images/eventos/eventoFreeWorldRockFest4.jpg"
-  ],
-  mostrarEnLanding: true
-},{
-  id: "8",
-  titulo: "Evento 3",
-  fecha: "5 diciembre 2025",
-  descripcion: "Este sería un evento de prueba para mostrar cómo se vería un evento futuro en la lista.",
-  descripcion1: "Descripción adicional del evento 1.",
-  descripcion2: "Más detalles sobre el evento 1.",
-  descripcion3: "Información extra sobre el evento 1.",
-  descripcion4: "Últimos detalles sobre el evento 1.",
-  imagen: "/images/eventos/eventoFreeWorldRockFest.jpg",
-  imagenes: [
-    "/images/eventos/eventoFreeWorldRockFest1.jpg",
-    "/images/eventos/eventoFreeWorldRockFest2.jpg",
-    "/images/eventos/eventoFreeWorldRockFest3.jpg",
-    "/images/eventos/eventoFreeWorldRockFest4.jpg"
-  ],
-  mostrarEnLanding: true
-},{
-  id: "9",
-  titulo: "Evento 4",
-  fecha: "5 junio 2028",
-  descripcion: "Este sería un evento de prueba para mostrar cómo se vería un evento futuro en la lista.",
-  descripcion1: "Descripción adicional del evento 1.",
-  descripcion2: "Más detalles sobre el evento 1.",
-  descripcion3: "Información extra sobre el evento 1.",
-  descripcion4: "Últimos detalles sobre el evento 1.",
-  imagen: "/images/eventos/eventoFreeWorldRockFest.jpg",
-  imagenes: [
-    "/images/eventos/eventoFreeWorldRockFest1.jpg",
-    "/images/eventos/eventoFreeWorldRockFest2.jpg",
-    "/images/eventos/eventoFreeWorldRockFest3.jpg",
-    "/images/eventos/eventoFreeWorldRockFest4.jpg"
-  ],
-  mostrarEnLanding: true
-},
+}
 ];

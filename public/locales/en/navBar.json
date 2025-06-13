@@ -1,6 +1,6 @@
 {
-"contact": "Contact",
-"upcomingEvents": "Upcoming Events",
-"ourHistory": "Our History",
-"events": "Our Events"
+    "contact": "Contact",
+    "news": "News",
+    "ourHistory": "Our History",
+    "events": "Our Events"
 }
