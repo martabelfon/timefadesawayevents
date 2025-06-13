@@ -57,7 +57,6 @@ export default function ContactPage() {
       <div className="w-full md:w-7/12 flex flex-col items-center mb-8 md:mb-0">
         
         <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description1')}</p>
-        <p>Hola</p>
         <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description2')}</p>
         <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description3')}</p>
         <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description4')}</p>
