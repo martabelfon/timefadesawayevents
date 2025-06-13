@@ -2,7 +2,7 @@
 
 import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
 import BlurText from '@/atoms/titleLandingBlur';
-import FormField from '@/molecules/formField';
+import FormField from '@/molecules/FormField';
 import NavBar from '@/molecules/navbar';
 import { Stars } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
