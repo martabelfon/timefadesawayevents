@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '@/molecules/navbar';
 import BlurText from '@/atoms/titleLandingBlur';
 import { noticias } from '@/data/noticias';
-import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
+import { ColorAnimationBackground } from '@/atoms/ColorAnimationBackground';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 

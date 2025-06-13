@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { ColorAnimationBackground } from "@/atoms/ ColorAnimationBackground";
+import { ColorAnimationBackground } from "@/atoms/ColorAnimationBackground";
 import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 

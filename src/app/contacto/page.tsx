@@ -1,6 +1,5 @@
 'use client';
-
-import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
+import { ColorAnimationBackground } from '@/atoms/ColorAnimationBackground';
 import BlurText from '@/atoms/titleLandingBlur';
 import FormField from '@/molecules/formField';
 import NavBar from '@/molecules/navbar';

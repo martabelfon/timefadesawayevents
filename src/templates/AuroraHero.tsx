@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 import { useMotionValue, animate } from "framer-motion";
-import { ColorAnimationBackground } from "@/atoms/ ColorAnimationBackground";
+import { ColorAnimationBackground } from "@/atoms/ColorAnimationBackground";
 import { AnimatedButton } from "@/atoms/AnimatedButton";
 import { useTranslation } from "react-i18next";
 import BlurText from "@/atoms/titleLandingBlur";
