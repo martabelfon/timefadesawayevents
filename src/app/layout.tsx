@@ -1,16 +1,20 @@
+// src/app/layout.tsx
+
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-const geistSans = Inter({
-  variable: "--font-geist-sans",
+// Usa fuentes de Google Fonts válidas
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Roboto_Mono({
-  variable: "--font-geist-mono",
+const robotoMono = Roboto_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,13 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className={`${inter.variable} ${robotoMono.variable}`}>
       <head>
         <link rel="icon" href="/images/logo/RELOJ.png" type="image/png" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
-      >
+      <body className="antialiased overflow-x-hidden">
         {children}
         <SpeedInsights />
       </body>
