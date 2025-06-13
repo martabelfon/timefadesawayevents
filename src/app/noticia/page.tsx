@@ -7,6 +7,7 @@ import { noticias } from '@/data/noticias';
 import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
+import FooterPages from '@/molecules/footerPages';
 
 const NoticiasPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -98,8 +99,10 @@ const NoticiasPage = () => {
               });
             })()}
           </div>
+
         </section>
       </main>
+      <FooterPages />
     </ColorAnimationBackground>
   );
 };

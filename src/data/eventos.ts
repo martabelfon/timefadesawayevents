@@ -27,7 +27,7 @@ export const eventos: Evento[] = [
   descripcion2: "Evento gratuito, sin ánimo de lucro, con una programación densa y presentado por Jesús Ordovás.",
   descripcion3: "Un homenaje único a Neil Young con participación abierta a bandas afines de la isla.",
   descripcion4: "Celebrado en Lloseta, Mallorca, bajo el espíritu de 'La Playa de Neil'.",
-  imagen: "/images/eventos/eventoMallorca.jpg",
+  imagen: "/images/eventos/eventoMallorca.jpeg",
   imagenes: [
     "/images/eventos/eventoMallorca1.jpg",
     "/images/eventos/eventoMallorca2.jpg",
