@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { noticias } from "@/data/noticias";
+import BlurText from "@/atoms/titleLandingBlur";
 
 // Ordenar por fecha descendente y mostrar solo las 4 más recientes
 const noticiasOrdenadas = [...noticias].sort((a, b) => {
@@ -26,9 +27,11 @@ const noticiasMostrar = noticiasOrdenadas.slice(0, 4);
 const Noticias = () => {
   return (
     <section className="min-h-screen relative w-full py-16 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 flex flex-col items-center justify-center">
+      <BlurText text="Nuestas noticias" className="text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
+
       <div
         className={
-          "w-full max-w-5xl flex flex-row flex-nowrap gap-8 justify-center overflow-x-auto md:overflow-x-visible px-2 md:px-0"
+          "w-full max-w-5xl flex flex-row flex-nowrap gap-8 justify-center overflow-x-auto md:overflow-x-visible px-2 md:px-0 mt-10"
         }
       >
         {noticiasMostrar.map((noticia, idx) => (
@@ -39,10 +42,10 @@ const Noticias = () => {
             transition={{ duration: 0.7, delay: idx * 0.15 }}
             viewport={{ once: true }}
             className={
-              "bg-white/90 rounded-2xl shadow-xl overflow-hidden border border-[color:var(--color-principal)]/30 hover:scale-105 transition-transform duration-300 flex flex-col flex-shrink-0 " +
+              "bg-white/90 rounded-2xl shadow-xl overflow-hidden border border-[color:var(--color-principal)]/30 hover:scale-105 transition-transform duration-300 flex flex-col flex-shrink-0 mx-2 my-4 " +
               (noticiasMostrar.length < 4
-                ? "max-w-md min-w-[85vw] sm:min-w-[340px] md:w-[340px] lg:w-[380px]"
-                : "max-w-sm min-w-[85vw] sm:min-w-[300px] md:w-[300px] lg:w-[340px]")
+                ? "max-w-xs min-w-[75vw] sm:min-w-[340px] md:w-[340px] lg:w-[380px]"
+                : "max-w-xs min-w-[75vw] sm:min-w-[300px] md:w-[300px] lg:w-[340px]")
             }
           >
             <div className="relative w-full h-48">

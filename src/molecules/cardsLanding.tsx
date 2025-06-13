@@ -10,8 +10,8 @@ const iconos = [
 
 const CardsLanding = () => {
   return (
-    <div className="relative w-full bg-gray-950 h-100 flex justify-center items-center">
-      <section className="relative z-20 w-full flex items-center justify-center p-4 sm:p-8 gap-4 md:gap-8">
+    <div className="relative w-full bg-gray-950 flex justify-center items-center py-12 sm:py-16">
+      <section className="relative z-20 w-full max-w-6xl min-h-[300px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 sm:px-8 justify-center items-center place-items-center">
         {[
           "Comprometidos con las causas sociales",
           "Soluciones personalizadas",
@@ -20,23 +20,19 @@ const CardsLanding = () => {
         ].map((text, idx) => (
           <SpotlightCard
             key={idx}
-            className="custom-spotlight-card"
+            className="custom-spotlight-card flex flex-col items-center justify-center text-center"
             spotlightColor="rgba(237, 201, 103, 1)"
           >
-            <div>
-              <div className="flex items-start justify-start w-full">
-                <img
-                  src={iconos[idx]}
-                  alt={`Icono apartado ${idx + 1}`}
-                  className="object-cover w-[70px]"
-                  loading="lazy"
-                />
-              </div>
-              <div>
-                <p className="gendy-font text-white text-xl flex items-center justify-center text-center mt-3">
-                  {text}
-                </p>
-              </div>
+            <div className="flex flex-col items-center justify-center w-full">
+              <img
+                src={iconos[idx]}
+                alt={`Icono apartado ${idx + 1}`}
+                className="object-cover w-[70px] mx-auto"
+                loading="lazy"
+              />
+              <p className="gendy-font text-white text-xl flex items-center justify-center text-center mt-3">
+                {text}
+              </p>
             </div>
           </SpotlightCard>
         ))}

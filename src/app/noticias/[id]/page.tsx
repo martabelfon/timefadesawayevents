@@ -3,6 +3,7 @@ import { noticias } from '@/data/noticias';
 import NavBar from '@/molecules/navbar';
 import Image from 'next/image';
 import React from 'react';
+import BlurText from '@/atoms/titleLandingBlur';
 
 interface NoticiaPageProps {
   params: { id: string };
@@ -17,10 +18,12 @@ const NoticiaPage = ({ params }: NoticiaPageProps) => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-900">
       <NavBar isScrolled={false} />
-      <section className="max-w-3xl mx-auto pt-[120px] pb-20 px-4 flex flex-col items-center">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-center text-[color:var(--color-principal)] mb-8 gendy-font drop-shadow">
+      <section className="max-w-5xl mx-auto pt-[120px] pb-20 px-4 flex flex-col items-center">
+        {/* <h1 className="text-3xl md:text-5xl font-extrabold text-center text-[color:var(--color-principal)] mb-8 gendy-font drop-shadow">
           {noticia.titulo}
-        </h1>
+        </h1> */}
+        <BlurText text={noticia.titulo} className="w-full max-w-full flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl mx-auto" />
+
         <div className="w-full flex flex-col md:flex-row gap-8 items-center mb-8">
           <div className="relative w-full md:w-2/5 h-64 md:h-80 rounded-xl overflow-hidden border-2 border-[color:var(--color-principal)]/40">
             <Image

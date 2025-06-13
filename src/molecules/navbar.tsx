@@ -52,13 +52,16 @@ const NavBar: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => {
     >
       <div className="flex flex-col md:flex-row items-center justify-between px-6 h-[90px] w-full">
 
-        {/* Título solo visible en móvil */}
-        <Link
-          href="/"
-          className="gendy-font md:hidden text-[color:var(--color-principal)] font-bold text-2xl text-center w-full mt-2"
-        >
-          Time Fades Away Events
-        </Link>
+        {/* Título centrado solo en móvil */}
+          <div className="md:hidden w-full text-center mt-2">
+            <Link
+              href="/"
+              className="gendy-font text-[color:var(--color-principal)] font-bold text-2xl"
+            >
+              Time Fades Away Events
+            </Link>
+          </div>
+
 
         {/* Contenido completo del navbar */}
         <div className="flex items-center justify-between w-full md:justify-center">

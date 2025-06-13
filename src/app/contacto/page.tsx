@@ -50,7 +50,9 @@ export default function ContactPage() {
         </Canvas>
       </div>
       <NavBar isScrolled={false} />
-      <BlurText text={t('title')} className="flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
+      <div className="mt-10">
+        <BlurText text={t('title')} className="flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
+      </div>
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-6xl mx-auto mt-10">
       <div className="w-full md:w-7/12 flex flex-col items-center mb-8 md:mb-0">
         

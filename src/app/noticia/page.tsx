@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '@/molecules/navbar';
 import BlurText from '@/atoms/titleLandingBlur';
 import { noticias } from '@/data/noticias';
-import { ColorAnimationBackground } from '@/atoms/ColorAnimationBackground';
+import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 
@@ -37,8 +37,7 @@ const NoticiasPage = () => {
             text="Lo más reciente que debes saber"
             className="text-white text-4xl sm:text-5xl md:text-6xl gendy-font text-center mb-6"
           />
-
-          <div className="w-full flex flex-row flex-nowrap gap-8 justify-center items-center overflow-x-auto md:overflow-x-visible px-2 md:px-0 mx-auto">
+          <div className="w-full flex flex-row flex-nowrap gap-8 justify-center items-center overflow-x-auto md:overflow-x-visible px-2 md:px-0 mx-auto mt-10">
             {(() => {
               const meses = [
                 "enero", "febrero", "marzo", "abril", "mayo", "junio",
@@ -57,42 +56,46 @@ const NoticiasPage = () => {
               );
               const noticiasMostrar = noticiasOrdenadas.slice(0, 4);
 
-              return noticiasMostrar.map((noticia, idx) => (
-                <div
-                  key={idx}
-                  className={
-                    "bg-white/90 rounded-2xl shadow-xl overflow-hidden border border-[color:var(--color-principal)]/30 hover:scale-105 transition-transform duration-300 flex flex-col flex-shrink-0 mx-auto " +
-                    (noticiasMostrar.length < 4
-                      ? "max-w-md min-w-[85vw] sm:min-w-[340px] md:w-[340px] lg:w-[380px]"
-                      : "max-w-sm min-w-[85vw] sm:min-w-[300px] md:w-[300px] lg:w-[340px]")
-                  }
-                >
-                  <div className="relative w-full h-48">
-                    <img
-                      src={noticia.imagen}
-                      alt={noticia.titulo}
-                      className="object-cover w-full h-full rounded-t-2xl"
-                      style={{ objectFit: 'cover' }}
-                    />
-                    <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
-                      {noticia.fecha}
+              return noticiasMostrar.map((noticia) => {
+                // Buscar el índice real de la noticia en el array original para usarlo como id
+                const noticiaId = noticias.findIndex(n => n.titulo === noticia.titulo && n.fecha === noticia.fecha);
+                return (
+                  <div
+                    key={noticiaId}
+                    className={
+                      "bg-white/90 rounded-2xl shadow-xl overflow-hidden border border-[color:var(--color-principal)]/30 hover:scale-105 transition-transform duration-300 flex flex-col flex-shrink-0 mx-2 my-4 " +
+                      (noticiasMostrar.length < 4
+                        ? "max-w-xs min-w-[75vw] sm:min-w-[340px] md:w-[340px] lg:w-[380px]"
+                        : "max-w-xs min-w-[75vw] sm:min-w-[300px] md:w-[300px] lg:w-[340px]")
+                    }
+                  >
+                    <div className="relative w-full h-48">
+                      <img
+                        src={noticia.imagen}
+                        alt={noticia.titulo}
+                        className="object-cover w-full h-full rounded-t-2xl"
+                        style={{ objectFit: 'cover' }}
+                      />
+                      <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
+                        {noticia.fecha}
+                      </div>
+                    </div>
+                    <div className="p-6 flex-1 flex flex-col justify-between">
+                      <h3 className="gendy-font text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">
+                        {noticia.titulo}
+                      </h3>
+                      <p className="text-gray-700 text-base text-center mb-2">{noticia.descripcion}</p>
+                      {noticia.descripcion2 && (
+                        <a href={`/noticias/${noticiaId}`} className="mt-2 mx-auto">
+                          <button className="px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
+                            Saber más
+                          </button>
+                        </a>
+                      )}
                     </div>
                   </div>
-                  <div className="p-6 flex-1 flex flex-col justify-between">
-                    <h3 className="text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">
-                      {noticia.titulo}
-                    </h3>
-                    <p className="text-gray-700 text-base text-center mb-2">{noticia.descripcion}</p>
-                    {noticia.descripcion2 && (
-                      <a href={`/noticias/${idx}`} className="mt-2 mx-auto">
-                        <button className="px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
-                          Saber más
-                        </button>
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ));
+                );
+              });
             })()}
           </div>
         </section>

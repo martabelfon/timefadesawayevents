@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, Transition } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
 
@@ -95,43 +97,53 @@ const BlurText: React.FC<BlurTextProps> = ({
   );
 
   return (
-    <p
+    <div
       ref={ref}
-      className={className}
-      style={{ display: 'flex', flexWrap: 'wrap' }}
+      className={
+        `w-full flex items-center justify-center overflow-x-hidden ` +
+        className
+      }
+      style={{
+        width: '100%',
+        maxWidth: '100vw',
+        margin: 0,
+        left: 'unset',
+        right: 'unset',
+        position: 'relative',
+      }}
     >
-      {elements.map((segment, index) => {
-        const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
+      <span className="block w-full text-center break-words">
+        {elements.map((segment, index) => {
+          const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
 
-        const spanTransition: Transition & { ease: (t: number) => number } = {
-          duration: totalDuration,
-          times,
-          delay: (index * delay) / 1000,
-          ease: easing,
-        };
+          const spanTransition: Transition & { ease: (t: number) => number } = {
+            duration: totalDuration,
+            times,
+            delay: (index * delay) / 1000,
+            ease: easing,
+          };
 
-        // (spanTransition as any).ease = easing;
-
-        return (
-          <motion.span
-            key={index}
-            initial={fromSnapshot}
-            animate={inView ? animateKeyframes : fromSnapshot}
-            transition={spanTransition}
-            onAnimationComplete={
-              index === elements.length - 1 ? onAnimationComplete : undefined
-            }
-            style={{
-              display: 'inline-block',
-              willChange: 'transform, filter, opacity',
-            }}
-          >
-            {segment === ' ' ? '\u00A0' : segment}
-            {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
-          </motion.span>
-        );
-      })}
-    </p>
+          return (
+            <motion.span
+              key={index}
+              initial={fromSnapshot}
+              animate={inView ? animateKeyframes : fromSnapshot}
+              transition={spanTransition}
+              onAnimationComplete={
+                index === elements.length - 1 ? onAnimationComplete : undefined
+              }
+              style={{
+                display: 'inline-block',
+                willChange: 'transform, filter, opacity',
+              }}
+            >
+              {segment === ' ' ? '\u00A0' : segment}
+              {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
+            </motion.span>
+          );
+        })}
+      </span>
+    </div>
   );
 };
 
