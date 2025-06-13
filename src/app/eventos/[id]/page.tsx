@@ -1,3 +1,4 @@
+// Forzar redeploy Vercel - limpieza de caché de tipado
 import MasInfoEventos from "@/templates/MasInfoEventos";
 
 // El tipo de props es correcto para Next.js App Router

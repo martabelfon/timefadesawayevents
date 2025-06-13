@@ -1,3 +1,4 @@
+// Forzar redeploy Vercel - limpieza de caché de tipado
 import { eventos } from "@/data/eventos";
 import { notFound } from "next/navigation";
 import Image from "next/image";
