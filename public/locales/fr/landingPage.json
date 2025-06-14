@@ -1,4 +1,12 @@
 {
-"title":"NOUS TRANSFORMONS VOS RÊVES EN ÉVÉNEMENTS",
-"buttonNextEvents":"Événements à venir"
+  "title": "Nous transformons vos rêves en événements",
+  "buttonNextEvents": "Événements à venir",
+  "events": "Événements",
+  "users": "Utilisateurs",
+  "sales": "Ventes",
+  "years": "Années",
+  "social": "Engagés pour des causes sociales",
+  "personalized": "Solutions personnalisées",
+  "expert": "Équipe experte et passionnée",
+  "logistic": "Logistique irréprochable garantie"
 }

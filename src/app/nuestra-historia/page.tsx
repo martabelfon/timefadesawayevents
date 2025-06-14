@@ -5,38 +5,26 @@ import BlurText from "@/atoms/titleLandingBlur";
 import FondoEstrellas from "@/molecules/fondoEstrellas";
 import NavBar from "@/molecules/navbar";
 import FooterPages from "@/molecules/footerPages";
-
-const timeline = [
-	{
-		title: "Los Inicios (1990)",
-		text: "Todo comenzó en 1990, en la Universidad de Mallorca. Enrique se encargaba del transporte, y yo, Ramón, me ofrecí como voluntario para conducir. Sin saberlo, aquel gesto marcó el inicio de una gran historia.",
-	},
-	{
-		title: "Primer Proyecto en Común (1991)",
-		text: "Un año más tarde, coincidimos en el rodaje de una película para la BBC protagonizada por Daniel Craig. Enrique coordinaba escenas bélicas y yo participaba como actor. Fue nuestro primer proyecto profesional compartido.",
-	},
-	{
-		title: "Eventos y Festivales (2002)",
-		text: "Desde entonces, nos cruzamos en eventos deportivos y musicales: Isladecanta, Open de Tenis de Mallorca, campeonatos de judo... Hasta que en 2002, junto con Alberto, coordinamos la seguridad de un macrofestival donde tocó Oasis.",
-	},
-	{
-		title: "Un Lazo que Perdura",
-		text: "Aunque Enrique y Alberto siguen en Mallorca y yo en Barcelona, nunca hemos perdido el contacto. Seguimos trabajando juntos con la misma pasión de siempre, como en el 70 aniversario de Neil Young.",
-	},
-	{
-		title: "El Presente",
-		text: "Hoy, decidimos dar un paso más. Apostamos por dedicarnos de lleno a esto que tanto nos apasiona. Porque el tiempo vuela —Time Fades Away— y queremos aprovecharlo haciendo lo que amamos.",
-	},
-];
+import { useTranslation } from "react-i18next";
 
 export default function NuestraHistoriaPage() {
+  const { t } = useTranslation('historia');
+
+  const timeline = [
+    { title: t('title1'), text: t('description1') },
+    { title: t('title2'), text: t('description2') },
+    { title: t('title3'), text: t('description3') },
+    { title: t('title4'), text: t('description4') },
+    { title: t('title5'), text: t('description5') },
+  ];
+
 	return (
 	<>	
     <FondoEstrellas className="bg-gray-950 text-gray-200">
 			<NavBar isScrolled={false} />
 			<div className="mt-25">
         <BlurText
-          text="De dónde venimos, hacia dónde vamos"
+          text={t('titlePage')}
           className="text-white text-4xl sm:text-5xl md:text-6xl gendy-font text-center mb-6"
         />
       </div>

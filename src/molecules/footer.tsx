@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation('footer');
+  
   return (
     <footer className="w-full bg-gray-950 text-gray-100 py-8 px-4 flex flex-col items-center justify-center border-t border-[color:var(--color-principal)]/30 mt-12">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-8">
@@ -9,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col items-start w-full md:w-1/2 gap-2">
           <Image src="/images/logo/logo.png" alt="Logo" width={200} height={80} className="object-contain w-[200px] h-auto mb-2" />
           <div className="text-gray-400 text-sm mt-2">
-            © {new Date().getFullYear()} Time Fades Away Events. Todos los derechos reservados.
+            © {new Date().getFullYear()} {t('droits')}
           </div>
         </div>
         {/* Columna derecha: iconos redes y correo */}

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { noticias } from "@/data/noticias";
 import BlurText from "@/atoms/titleLandingBlur";
+import i18n from "@/lib/i18n";
 
 // Ordenar por fecha descendente y mostrar solo las 4 más recientes
 const noticiasOrdenadas = [...noticias].sort((a, b) => {
@@ -19,15 +20,45 @@ const noticiasOrdenadas = [...noticias].sort((a, b) => {
     const anio = partes[partes.length - 1];
     return new Date(`${anio}-${mesNum.toString().padStart(2, "0")}-${dia.padStart(2, "0")}`);
   };
-  return parseFecha(b.fecha).getTime() - parseFecha(a.fecha).getTime();
+  return parseFecha(b.fecha.es).getTime() - parseFecha(a.fecha.es).getTime();
 });
 
 const noticiasMostrar = noticiasOrdenadas.slice(0, 4);
 
+const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
+type Lang = typeof SUPPORTED_LANGS[number];
+
 const Noticias = () => {
+  const [lang, setLang] = useState<Lang>((SUPPORTED_LANGS.includes(i18n.language as Lang) ? i18n.language : 'es') as Lang);
+
+  useEffect(() => {
+    const handleLangChange = (lng: string) => {
+      if (SUPPORTED_LANGS.includes(lng as Lang)) setLang(lng as Lang);
+      else setLang('es');
+    };
+    i18n.on('languageChanged', handleLangChange);
+    return () => i18n.off('languageChanged', handleLangChange);
+  }, []);
+
+  const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
+    if (obj && typeof obj === 'object' && typeof obj[lang] === 'string') return obj[lang];
+    if (obj && typeof obj === 'object') {
+      // Devuelve el primer string disponible
+      for (const key of Object.keys(obj)) {
+        if (typeof obj[key] === 'string') return obj[key];
+      }
+    }
+    return fallback;
+  };
+
   return (
     <section className="min-h-screen relative w-full py-16 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 flex flex-col items-center justify-center">
-      <BlurText text="Nuestas noticias" className="text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
+      <BlurText text={{
+        es: "Nuestras noticias",
+        en: "Our news",
+        fr: "Nos actualités",
+        de: "Unsere Nachrichten"
+      }[lang]} className="text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
 
       <div
         className={
@@ -51,24 +82,29 @@ const Noticias = () => {
             <div className="relative w-full h-48">
               <Image
                 src={noticia.imagen}
-                alt={noticia.titulo}
+                alt={safeGet(noticia.titulo, lang)}
                 fill
                 className="object-cover"
                 priority={idx === 0}
               />
               <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
-                {noticia.fecha}
+                {safeGet(noticia.fecha, lang)}
               </div>
             </div>
             <div className="p-6 flex-1 flex flex-col justify-between">
-              <h3 className="text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">{noticia.titulo}</h3>
-              <p className="text-gray-700 text-base text-center mb-2">{noticia.descripcion}</p>
-              {noticia.descripcion2 && (
+              <h3 className="text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">{safeGet(noticia.titulo, lang)}</h3>
+              <p className="text-gray-700 text-base text-center mb-2">{safeGet(noticia.descripcion, lang)}</p>
+              {safeGet(noticia.descripcion2, lang) && (
                 <Link href="/noticias/noticia1" className="mt-2 mx-auto">
                   <button
                     className="px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors"
                   >
-                    Saber más
+                    text={{
+                      es: "Saber más",
+                      en: "Read more",
+                      fr: "En savoir plus",
+                      de: "Mehr erfahren"
+                    }[lang]}
                   </button>
                 </Link>
               )}
