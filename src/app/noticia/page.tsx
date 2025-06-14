@@ -87,11 +87,11 @@ const NoticiasPage = () => {
                       </h3>
                       <p className="text-gray-700 text-base text-center mb-2">{noticia.descripcion}</p>
                       {noticia.descripcion2 && (
-                        <a href={`/noticias/${noticiaId}`} className="mt-2 mx-auto">
+                        // <a href={`/noticias/${noticiaId}`} className="mt-2 mx-auto">
                           <button className="px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
                             Saber más
                           </button>
-                        </a>
+                        // </a>
                       )}
                     </div>
                   </div>

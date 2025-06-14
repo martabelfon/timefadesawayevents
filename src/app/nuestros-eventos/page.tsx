@@ -117,11 +117,11 @@ const NuestrosEventos = () => {
                   <p className="text-gray-800 text-base text-center mb-4 line-clamp-4">
                     {evento.descripcion}
                   </p>
-                  <Link href={`/eventos/${evento.id}`} className="mt-auto mx-auto w-full">
+                  {/* <Link href={`/eventos/${evento.id}`} className="mt-auto mx-auto w-full"> */}
                     <button className="w-full md:w-auto px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
                       Más info
                     </button>
-                  </Link>
+                  {/* </Link> */}
                 </div>
               </motion.div>
             ))}
