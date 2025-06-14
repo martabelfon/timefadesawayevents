@@ -117,7 +117,7 @@ export const EventosLanding = () => {
         <div className="flex justify-center w-full flex-row">
           {eventosOrdenados.map((evento, idx) => (
             <Link
-              href={`/eventos/${evento.id}`}
+              href={`/eventos/evento${evento.id}`}
               key={`${evento.id}-${idx}`}
               className="group relative overflow-hidden rounded-lg shadow-lg flex flex-col mx-2 max-w-xs w-full"
             >
@@ -147,7 +147,7 @@ export const EventosLanding = () => {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4 w-full">
         {eventosOrdenados.map((evento) => (
-          <Link href={`/eventos/${evento.id}`} key={evento.id} className="group relative overflow-hidden rounded-lg shadow-lg w-full flex flex-col">
+          <Link href={`/eventos/evento${evento.id}`} key={evento.id} className="group relative overflow-hidden rounded-lg shadow-lg w-full flex flex-col">
             <Image
               src={evento.imagen || "/default.jpg"}
               alt={evento.titulo}

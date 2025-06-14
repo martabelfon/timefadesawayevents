@@ -2,6 +2,7 @@
 
 import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
 import BlurText from '@/atoms/titleLandingBlur';
+import FooterPages from '@/molecules/footerPages';
 import FormField from '@/molecules/FormField';
 import NavBar from '@/molecules/navbar';
 import { Stars } from '@react-three/drei';
@@ -43,6 +44,7 @@ export default function ContactPage() {
   };
 
   return (
+  <>
     <ColorAnimationBackground className="relative min-h-screen place-content-center overflow-hidden bg-gray-950 px-2 sm:px-4 py-16 sm:py-24 text-gray-200">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Canvas>
@@ -108,5 +110,7 @@ export default function ContactPage() {
         </div>
       </div>
     </ColorAnimationBackground>
+    <FooterPages />
+  </>
   );
 }

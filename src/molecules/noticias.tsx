@@ -64,13 +64,13 @@ const Noticias = () => {
               <h3 className="text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">{noticia.titulo}</h3>
               <p className="text-gray-700 text-base text-center mb-2">{noticia.descripcion}</p>
               {noticia.descripcion2 && (
-                // <Link href={`/noticias/${idx}`} className="mt-2 mx-auto">
+                <Link href="/noticias/noticia1" className="mt-2 mx-auto">
                   <button
                     className="px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors"
                   >
                     Saber más
                   </button>
-                // </Link>
+                </Link>
               )}
             </div>
           </motion.div>
