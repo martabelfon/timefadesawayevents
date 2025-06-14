@@ -8,6 +8,7 @@ import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 import FooterPages from '@/molecules/footerPages';
+import Link from 'next/link';
 
 const NoticiasPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,6 +22,7 @@ const NoticiasPage = () => {
   }, []);
 
   return (
+    <>
     <ColorAnimationBackground className="relative min-h-screen overflow-hidden bg-gray-950 text-gray-200 flex flex-col items-center justify-start">
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Canvas>
@@ -87,11 +89,11 @@ const NoticiasPage = () => {
                       </h3>
                       <p className="text-gray-700 text-base text-center mb-2">{noticia.descripcion}</p>
                       {noticia.descripcion2 && (
-                        // <a href={`/noticias/${noticiaId}`} className="mt-2 mx-auto">
+                        <Link href={`/noticias/noticia${noticiaId + 1}`} className="mt-2 mx-auto">
                           <button className="px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
                             Saber más
                           </button>
-                        // </a>
+                        </Link>
                       )}
                     </div>
                   </div>
@@ -102,8 +104,9 @@ const NoticiasPage = () => {
 
         </section>
       </main>
-      <FooterPages />
     </ColorAnimationBackground>
+    <FooterPages />
+  </>
   );
 };
 

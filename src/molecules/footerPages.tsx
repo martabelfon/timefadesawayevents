@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const FooterPages = () => {
   return (
-    <footer className="w-full bg-gray-950 text-gray-100 py-4 px-4 flex flex-col items-center justify-center border-t border-[color:var(--color-principal)]/30 mt-8">
+    <footer className="w-screen max-w-none bg-gray-950 text-gray-100 py-4 px-4 flex flex-col items-center justify-center border-t border-[color:var(--color-principal)]/30">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-4">
         {/* Columna izquierda: logo + copyright */}
         <div className="flex flex-col items-start w-full md:w-1/2 gap-1">

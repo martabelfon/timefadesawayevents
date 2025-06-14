@@ -8,6 +8,7 @@ import NavBar from '@/molecules/navbar';
 import { eventos as eventosData } from '@/data/eventos';
 import BlurText from '@/atoms/titleLandingBlur';
 import dynamic from "next/dynamic";
+import FooterPages from '@/molecules/footerPages';
 
 const FondoEstrellas = dynamic(() => import("@/molecules/fondoEstrellas"), { ssr: false });
 
@@ -74,6 +75,7 @@ const NuestrosEventos = () => {
   }, []);
 
   return (
+   <>
     <FondoEstrellas className="bg-gray-950 text-gray-200">
       <main className="relative w-full z-10">
         <NavBar isScrolled={isScrolled} />
@@ -117,18 +119,20 @@ const NuestrosEventos = () => {
                   <p className="text-gray-800 text-base text-center mb-4 line-clamp-4">
                     {evento.descripcion}
                   </p>
-                  {/* <Link href={`/eventos/${evento.id}`} className="mt-auto mx-auto w-full"> */}
+                  <Link href={`/eventos/evento${evento.id}`} className="mt-auto mx-auto w-full">
                     <button className="w-full md:w-auto px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
                       Más info
                     </button>
-                  {/* </Link> */}
+                  </Link>
                 </div>
               </motion.div>
             ))}
           </div>
         </section>
       </main>
+      <FooterPages />
     </FondoEstrellas>
+  </> 
   );
 };
 
