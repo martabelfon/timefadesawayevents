@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { noticias } from "@/data/noticias";
 import BlurText from "@/atoms/titleLandingBlur";
 
