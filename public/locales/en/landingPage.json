@@ -1,4 +1,12 @@
 {
-"title":"WE TURN YOUR DREAMS INTO EVENTS",
-"buttonNextEvents":"Upcoming Events"
+  "title": "We turn your dreams into events",
+  "buttonNextEvents": "Upcoming Events",
+  "events": "Events",
+  "users": "Users",
+  "sales": "Sales",
+  "years": "Years",
+  "social": "Committed to social causes",
+  "personalized": "Personalized solutions",
+  "expert": "Expert and passionate team",
+  "logistic": "Flawless logistics guaranteed"
 }

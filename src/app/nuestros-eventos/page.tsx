@@ -9,6 +9,8 @@ import { eventos as eventosData } from '@/data/eventos';
 import BlurText from '@/atoms/titleLandingBlur';
 import dynamic from "next/dynamic";
 import FooterPages from '@/molecules/footerPages';
+import i18n from '@/lib/i18n';
+import { useTranslation } from 'react-i18next';
 
 const FondoEstrellas = dynamic(() => import("@/molecules/fondoEstrellas"), { ssr: false });
 
@@ -60,11 +62,18 @@ const eventosOrdenados = [...eventosData].sort((a, b) => {
     if (mes === undefined) return new Date(0);
     return new Date(parseInt(anio), mes, dia);
   }
-  return parseFechaEvento(b.fecha).getTime() - parseFechaEvento(a.fecha).getTime();
+  // Usar siempre la fecha en español para ordenar
+  return parseFechaEvento(b.fecha.es).getTime() - parseFechaEvento(a.fecha.es).getTime();
 });
 
+const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
+type Lang = typeof SUPPORTED_LANGS[number];
+
 const NuestrosEventos = () => {
+  const { t } = useTranslation('eventos');
+
   const [isScrolled, setIsScrolled] = useState(false);
+  const [lang, setLang] = useState<Lang>((SUPPORTED_LANGS.includes(i18n.language as Lang) ? i18n.language : 'es') as Lang);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,6 +81,15 @@ const NuestrosEventos = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleLangChange = (lng: string) => {
+      if (SUPPORTED_LANGS.includes(lng as Lang)) setLang(lng as Lang);
+      else setLang('es');
+    };
+    i18n.on('languageChanged', handleLangChange);
+    return () => i18n.off('languageChanged', handleLangChange);
   }, []);
 
   return (
@@ -85,7 +103,7 @@ const NuestrosEventos = () => {
         >
           <div className="mt-10 md:mt-20 w-full">
             <BlurText
-              text="Una mirada a nuestros eventos: lo que fue, lo que es y lo que viene"
+              text={t('titlePage')}
               className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl gendy-font text-center mb-6 px-2"
             />
           </div>
@@ -109,19 +127,19 @@ const NuestrosEventos = () => {
                     priority={i < 2}
                   />
                   <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
-                    {evento.fecha}
+                    {evento.fecha[lang]}
                   </div>
                 </div>
                 <div className="p-4 md:p-6 flex-1 flex flex-col justify-between">
                   <h3 className="gendy-font text-lg md:text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">
-                    {evento.titulo}
+                    {evento.titulo[lang]}
                   </h3>
                   <p className="text-gray-800 text-base text-center mb-4 line-clamp-4">
-                    {evento.descripcion}
+                    {evento.descripcion[lang]}
                   </p>
                   <Link href={`/eventos/evento${evento.id}`} className="mt-auto mx-auto w-full">
                     <button className="w-full md:w-auto px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
-                      Más info
+                     {t('buttonMoreInfo')}
                     </button>
                   </Link>
                 </div>

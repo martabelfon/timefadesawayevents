@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { eventos } from "@/data/eventos";
+import { useTranslation } from "react-i18next";
+import i18n from '@/lib/i18n';
 
 function normalizarMes(mes: string) {
   return mes
@@ -16,28 +18,54 @@ const meses: Record<string, number> = {
   'Julio': 6, 'Agosto': 7, 'Septiembre': 8, 'Octubre': 9, 'Noviembre': 10, 'Diciembre': 11
 };
 
+const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
+type Lang = typeof SUPPORTED_LANGS[number];
+
+const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
+  if (obj && typeof obj === 'object' && typeof obj[lang] === 'string') return obj[lang];
+  if (obj && typeof obj === 'object') {
+    for (const key of Object.keys(obj)) {
+      if (typeof obj[key] === 'string') return obj[key];
+    }
+  }
+  if (typeof obj === 'string') return obj;
+  return fallback;
+};
+
 export const EventosLanding = () => {
+  const { t } = useTranslation('eventos');
+  const [lang, setLang] = useState<Lang>((SUPPORTED_LANGS.includes(i18n.language as Lang) ? i18n.language : 'es') as Lang);
+
+  useEffect(() => {
+    const handleLangChange = (lng: string) => {
+      if (SUPPORTED_LANGS.includes(lng as Lang)) setLang(lng as Lang);
+      else setLang('es');
+    };
+    i18n.on('languageChanged', handleLangChange);
+    return () => i18n.off('languageChanged', handleLangChange);
+  }, []);
+
   const eventosParaMostrar = eventos.filter(evento => {
     if (!evento.mostrarEnLanding) return false;
-
+    const fechaStr = safeGet(evento.fecha, lang, safeGet(evento.fecha, 'es'));
     let dia: number, mesTexto: string, anio: string;
-    if (/\d+\s*y\s*\d+\s*de\s*[a-zA-Z]+\s*\d{4}/i.test(evento.fecha)) {
-      const match = evento.fecha.match(/(\d+)\s*y\s*(\d+)\s*de\s*([a-zA-Z]+)\s*(\d{4})/i);
+    if (/\d+\s*y\s*\d+\s*de\s*[a-zA-Z]+\s*\d{4}/i.test(fechaStr)) {
+      const match = fechaStr.match(/(\d+)\s*y\s*(\d+)\s*de\s*([a-zA-Z]+)\s*(\d{4})/i);
       dia = parseInt(match?.[2] || '1');
       mesTexto = match?.[3] || '';
       anio = match?.[4] || '';
-    } else if (/\d+\s*de\s*[a-zA-Z]+\s*\d{4}/i.test(evento.fecha)) {
-      const match = evento.fecha.match(/(\d+)\s*de\s*([a-zA-Z]+)\s*(\d{4})/i);
+    } else if (/\d+\s*de\s*[a-zA-Z]+\s*\d{4}/i.test(fechaStr)) {
+      const match = fechaStr.match(/(\d+)\s*de\s*([a-zA-Z]+)\s*(\d{4})/i);
       dia = parseInt(match?.[1] || '1');
       mesTexto = match?.[2] || '';
       anio = match?.[3] || '';
-    } else if (/^[a-zA-Z]+\s*\d{4}$/.test(evento.fecha)) {
-      const match = evento.fecha.match(/([a-zA-Z]+)\s*(\d{4})/);
+    } else if (/^[a-zA-Z]+\s*\d{4}$/.test(fechaStr)) {
+      const match = fechaStr.match(/([a-zA-Z]+)\s*(\d{4})/);
       dia = 1;
       mesTexto = match?.[1] || '';
       anio = match?.[2] || '';
     } else {
-      const partes = evento.fecha.split(' ');
+      const partes = fechaStr.split(' ');
       if (partes.length === 3) {
         dia = parseInt(partes[0]);
         mesTexto = partes[1];
@@ -50,7 +78,6 @@ export const EventosLanding = () => {
         return false;
       }
     }
-
     const mesNormalizado = normalizarMes(mesTexto);
     const mes = meses[mesNormalizado as keyof typeof meses];
     if (mes === undefined) return false;
@@ -62,19 +89,44 @@ export const EventosLanding = () => {
 
   const eventosOrdenados = eventosParaMostrar
     .sort((a, b) => {
-      // Parse fechas nuevamente para ordenarlas
-      const parseFecha = (fechaStr: string) => {
-        const partes = fechaStr.match(/\d+/g);
-        if (!partes || partes.length < 2) return new Date(3000, 0, 1); // fallback
-
-        const d: number = partes.length === 3 ? parseInt(partes[0]) : 1;
-        const m: number = parseInt(partes[partes.length - 2]) - 1;
-        const y: number = parseInt(partes[partes.length - 1]);
-
-        return new Date(y, m, d);
-        };
-
-      return parseFecha(a.fecha).getTime() - parseFecha(b.fecha).getTime();
+      const parseFecha = (evento: typeof eventos[0]) => {
+        const fechaStr = safeGet(evento.fecha, lang, safeGet(evento.fecha, 'es'));
+        let dia: number, mesTexto: string, anio: string;
+        if (/\d+\s*y\s*\d+\s*de\s*[a-zA-Z]+\s*\d{4}/i.test(fechaStr)) {
+          const match = fechaStr.match(/(\d+)\s*y\s*(\d+)\s*de\s*([a-zA-Z]+)\s*(\d{4})/i);
+          dia = parseInt(match?.[2] || '1');
+          mesTexto = match?.[3] || '';
+          anio = match?.[4] || '';
+        } else if (/\d+\s*de\s*[a-zA-Z]+\s*\d{4}/i.test(fechaStr)) {
+          const match = fechaStr.match(/(\d+)\s*de\s*([a-zA-Z]+)\s*(\d{4})/i);
+          dia = parseInt(match?.[1] || '1');
+          mesTexto = match?.[2] || '';
+          anio = match?.[3] || '';
+        } else if (/^[a-zA-Z]+\s*\d{4}$/.test(fechaStr)) {
+          const match = fechaStr.match(/([a-zA-Z]+)\s*(\d{4})/);
+          dia = 1;
+          mesTexto = match?.[1] || '';
+          anio = match?.[2] || '';
+        } else {
+          const partes = fechaStr.split(' ');
+          if (partes.length === 3) {
+            dia = parseInt(partes[0]);
+            mesTexto = partes[1];
+            anio = partes[2];
+          } else if (partes.length === 2) {
+            dia = 1;
+            mesTexto = partes[0];
+            anio = partes[1];
+          } else {
+            return new Date(3000, 0, 1);
+          }
+        }
+        const mesNormalizado = normalizarMes(mesTexto);
+        const mes = meses[mesNormalizado as keyof typeof meses];
+        if (mes === undefined) return new Date(3000, 0, 1);
+        return new Date(parseInt(anio), mes, dia);
+      };
+      return parseFecha(a).getTime() - parseFecha(b).getTime();
     })
     .slice(0, 4);
 
@@ -96,12 +148,12 @@ export const EventosLanding = () => {
             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
           />
         </svg>
-        <h2 className="text-gray-700 text-2xl font-semibold mb-2 text-center">No hay eventos disponibles por ahora</h2>
+        <h2 className="text-gray-700 text-2xl font-semibold mb-2 text-center">{t('errorEvents')}</h2>
         <p className="text-gray-500 mb-6 max-w-xs text-center">
-          Estamos preparando nuevas experiencias para ti. ¡Vuelve pronto para descubrirlas!
+          {t('prepareEvents')}
         </p>
         <Link href="/nuestros-eventos" className="px-6 py-2 bg-[color:var(--color-principal)] text-white rounded-md hover:bg-opacity-90 transition">
-          Ver todos los eventos
+          {t('seeAllEvents')}
         </Link>
       </div>
     );
@@ -123,14 +175,14 @@ export const EventosLanding = () => {
             >
               <Image
                 src={evento.imagen || "/default.jpg"}
-                alt={evento.titulo}
+                alt={safeGet(evento.titulo, lang, safeGet(evento.titulo, 'es'))}
                 width={300}
                 height={320}
                 className="object-cover w-full h-100 transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-[color:var(--color-principal)] bg-opacity-70 text-white text-lg text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {evento.fecha}
-                {evento.ubicacion}
+                {safeGet(evento.fecha, lang, safeGet(evento.fecha, 'es'))}
+                {safeGet(evento.ubicacion, lang, safeGet(evento.ubicacion, 'es'))}
               </div>
             </Link>
           ))}
@@ -150,17 +202,17 @@ export const EventosLanding = () => {
           <Link href={`/eventos/evento${evento.id}`} key={evento.id} className="group relative overflow-hidden rounded-lg shadow-lg w-full flex flex-col">
             <Image
               src={evento.imagen || "/default.jpg"}
-              alt={evento.titulo}
+              alt={safeGet(evento.titulo, lang, safeGet(evento.titulo, 'es'))}
               width={300}
               height={320}
               className="object-cover w-full h-100 transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-[color:var(--color-principal)] bg-opacity-70 text-gray-900 text-lg text-center py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div>
-                {evento.fecha}
+                {safeGet(evento.fecha, lang, safeGet(evento.fecha, 'es'))}
               </div>
               <div>
-                {evento.ubicacion}
+                {safeGet(evento.ubicacion, lang, safeGet(evento.ubicacion, 'es'))}
               </div>
             </div>
           </Link>

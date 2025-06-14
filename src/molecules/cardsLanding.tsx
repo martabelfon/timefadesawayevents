@@ -1,5 +1,6 @@
 import React from "react";
 import SpotlightCard from "@/atoms/spotlightCard";
+import { useTranslation } from "react-i18next";
 
 const iconos = [
   "/images/social2.png",
@@ -9,14 +10,16 @@ const iconos = [
 ];
 
 const CardsLanding = () => {
+      const { t } = useTranslation('landingPage');
+  
   return (
     <div className="relative w-full bg-gray-950 flex justify-center items-center py-12 sm:py-16">
       <section className="relative z-20 w-full max-w-6xl min-h-[300px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 sm:px-8 justify-center items-center place-items-center">
         {[
-          "Comprometidos con las causas sociales",
-          "Soluciones personalizadas",
-          "Equipo experto y apasionado",
-          "Logística impecable garantizada",
+          t('social'),
+          t('personalized'),
+          t('expert'),
+          t('logistic'),
         ].map((text, idx) => (
           <SpotlightCard
             key={idx}

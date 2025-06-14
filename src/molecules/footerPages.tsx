@@ -1,7 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const FooterPages = () => {
+  const { t } = useTranslation('footer');
+  
   return (
     <footer className="w-screen max-w-none bg-gray-950 text-gray-100 py-4 px-4 flex flex-col items-center justify-center border-t border-[color:var(--color-principal)]/30">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl gap-4">
@@ -15,7 +18,7 @@ const FooterPages = () => {
             className="object-contain w-[160px] h-auto mb-1"
           />
           <div className="text-gray-400 text-xs">
-            © {new Date().getFullYear()} Time Fades Away Events. Todos los derechos reservados.
+            © {new Date().getFullYear()} {t('droits')}
           </div>
         </div>
 
