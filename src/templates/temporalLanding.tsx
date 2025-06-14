@@ -39,7 +39,7 @@ import { useTranslation } from 'react-i18next'
         </div>
         <div className="mx-auto max-w-7xl px-6 lg:px-8 flex justify-center items-center text-center">
           <div className="mx-auto max-w-5xl lg:mx-0">
-            <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">{t('title')}</h2>
+            <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">{t('title')}</h2>        
             <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
                 {t('description')}
             </p>
