@@ -21,7 +21,7 @@ const meses: Record<string, number> = {
 const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
 type Lang = typeof SUPPORTED_LANGS[number];
 
-const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
+const safeGet = (obj: Record<string, string> | string | undefined, lang: string, fallback: string = ''): string => {
   if (obj && typeof obj === 'object' && typeof obj[lang] === 'string') return obj[lang];
   if (obj && typeof obj === 'object') {
     for (const key of Object.keys(obj)) {

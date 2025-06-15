@@ -1,4 +1,3 @@
-import { sign } from './../../node_modules/@types/three/src/Three.TSL.d';
 export interface Evento {
   id: string;
   titulo: {
