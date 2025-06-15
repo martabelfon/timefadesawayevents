@@ -134,7 +134,7 @@ const NuestrosEventos = () => {
                   <h3 className="gendy-font text-lg md:text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">
                     {evento.titulo[lang]}
                   </h3>
-                  <p className="text-gray-800 text-base text-center mb-4 line-clamp-4">
+                  <p className="text-gray-800 text-base text-center mb-4 line-clamp-4 dangerouslySetInnerHTML={{ __html }}">
                     {evento.descripcion[lang]}
                   </p>
                   <Link href={`/eventos/evento${evento.id}`} className="mt-auto mx-auto w-full">

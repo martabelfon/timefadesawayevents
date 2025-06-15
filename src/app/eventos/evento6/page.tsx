@@ -21,9 +21,9 @@ const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
   return fallback;
 };
 
-const evento = eventos.find(e => e.id === "1");
+const evento = eventos.find(e => e.id === "6");
 
-export default function Evento1Page() {      
+export default function Evento6Page() {      
   const { t } = useTranslation('eventos');
 
   const [lang, setLang] = useState<Lang>((SUPPORTED_LANGS.includes(i18n.language as Lang) ? i18n.language : 'es') as Lang);
@@ -58,10 +58,10 @@ export default function Evento1Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-4 mt-4">
-          {[safeGet(evento.descripcion1, lang), safeGet(evento.descripcion2, lang), safeGet(evento.descripcion3, lang), safeGet(evento.descripcion4, lang), safeGet(evento.descripcion5, lang), safeGet(evento.descripcion6, lang), safeGet(evento.descripcion7, lang)]
+          {[safeGet(evento.descripcion1, lang), safeGet(evento.descripcion2, lang), safeGet(evento.descripcion3, lang), safeGet(evento.descripcion4, lang), safeGet(evento.descripcion5, lang), safeGet(evento.descripcion6, lang), safeGet(evento.descripcion7, lang), safeGet(evento.descripcion8, lang), safeGet(evento.descripcion9, lang)]
             .filter(Boolean)
             .map((desc, idx) => (
-              <p key={idx} className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: desc }}>{desc}</p>
+              <p key={idx} className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: desc }}></p>
             ))}
         </div>
         {evento.imagenes && evento.imagenes.length > 0 && (
