@@ -3,7 +3,6 @@
 import { noticias } from "@/data/noticias";
 import NavBar from '@/molecules/navbar';
 import BlurText from "@/atoms/titleLandingBlur";
-import Image from "next/image";
 import i18n from '@/lib/i18n';
 import { useEffect, useState } from 'react';
 import { useTranslation } from "react-i18next";
@@ -11,13 +10,14 @@ import { useTranslation } from "react-i18next";
 const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
 type Lang = typeof SUPPORTED_LANGS[number];
 
-const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
+const safeGet = (obj: Record<string, string> | string | undefined, lang: string, fallback: string = ''): string => {
   if (obj && typeof obj === 'object' && typeof obj[lang] === 'string') return obj[lang];
   if (obj && typeof obj === 'object') {
     for (const key of Object.keys(obj)) {
       if (typeof obj[key] === 'string') return obj[key];
     }
   }
+  if (typeof obj === 'string') return obj;
   return fallback;
 };
 
@@ -42,14 +42,14 @@ export default function Noticia1Page() {
       <NavBar isScrolled={false} />
       <section className="max-w-5xl mx-auto pt-[120px] pb-20 px-4 flex flex-col items-center">
         <BlurText text={safeGet(noticia.titulo, lang)} className="flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
-        <div className="w-full flex justify-center mb-8 mt-5">
-          <div className="relative w-full max-w-lg h-64 md:h-80 rounded-xl overflow-hidden border-2 border-[color:var(--color-principal)]/40 mx-auto">
-            <Image
+        <div className="relative w-full max-w-lg mx-auto overflow-hidden border-2 border-[color:var(--color-principal)]/40 rounded-xl bg-black">
+          <div className="w-full h-auto max-h-[700px] flex items-center justify-center">
+            <img
               src={noticia.imagen || '/default.jpg'}
               alt={safeGet(noticia.titulo, lang)}
-              fill
-              className="object-cover rounded-xl"
-              priority
+              width={900}
+              height={600}
+              className="object-contain w-full h-auto"
             />
             <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
               {safeGet(noticia.fecha, lang)}

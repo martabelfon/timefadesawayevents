@@ -63,8 +63,8 @@ const eventosOrdenados = [...eventosData].sort((a, b) => {
     return new Date(parseInt(anio), mes, dia);
   }
   // Usar siempre la fecha en español para ordenar
-  return parseFechaEvento(b.fecha.es).getTime() - parseFechaEvento(a.fecha.es).getTime();
-});
+  return parseFechaEvento(a.fecha.es).getTime() - parseFechaEvento(b.fecha.es).getTime();
+}).reverse();
 
 const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
 type Lang = typeof SUPPORTED_LANGS[number];
@@ -108,43 +108,47 @@ const NuestrosEventos = () => {
             />
           </div>
           <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full max-w-7xl mx-auto items-stretch">
-            {eventosOrdenados.map((evento, i) => (
-              <motion.div
-                key={evento.id + '-' + i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.7 }}
-                viewport={{ once: true }}
-                className="bg-white/90 rounded-2xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 flex flex-col h-full min-h-[420px] md:min-h-[480px]"
-              >
-                <div className="relative w-full h-40 md:h-48">
-                  <Image
-                    src={evento.imagen?.startsWith('/images/eventos/') ? evento.imagen : `/images/eventos/${evento.imagen}`}
-                    alt={`Imagen del ${evento.titulo}`}
-                    fill
-                    className="object-cover w-full h-full rounded-t-2xl"
-                    style={{ objectFit: 'cover' }}
-                    priority={i < 2}
-                  />
-                  <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
-                    {evento.fecha[lang]}
+            {eventosOrdenados.map((evento, i) => {
+              const descripcionCard = evento.descripcion[lang]?.replace(/<span style="color:var\(--color-principal\)">/g, '<strong>').replace(/<\/span>/g, '</strong>');
+              return (
+                <motion.div
+                  key={evento.id + '-' + i}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.7 }}
+                  viewport={{ once: true }}
+                  className="bg-white/90 rounded-2xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300 flex flex-col h-full min-h-[420px] md:min-h-[480px]"
+                >
+                  <div className="relative w-full h-40 md:h-48">
+                    <Image
+                      src={evento.imagen?.startsWith('/images/eventos/') ? evento.imagen : `/images/eventos/${evento.imagen}`}
+                      alt={`Imagen del ${evento.titulo}`}
+                      fill
+                      className="object-cover w-full h-full rounded-t-2xl"
+                      style={{ objectFit: 'cover' }}
+                      priority={i < 2}
+                    />
+                    <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
+                      {evento.fecha[lang]}
+                    </div>
                   </div>
-                </div>
-                <div className="p-4 md:p-6 flex-1 flex flex-col justify-between">
-                  <h3 className="gendy-font text-lg md:text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">
-                    {evento.titulo[lang]}
-                  </h3>
-                  <p className="text-gray-800 text-base text-center mb-4 line-clamp-4">
-                    {evento.descripcion[lang]}
-                  </p>
-                  <Link href={`/eventos/evento${evento.id}`} className="mt-auto mx-auto w-full">
-                    <button className="w-full md:w-auto px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
-                     {t('buttonMoreInfo')}
-                    </button>
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="p-4 md:p-6 flex-1 flex flex-col justify-between">
+                    <h3 className="gendy-font text-lg md:text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">
+                      {evento.titulo[lang]}
+                    </h3>
+                    <p
+                      className="cardDescripcion text-gray-800 text-base text-center mb-4 line-clamp-4"
+                      dangerouslySetInnerHTML={{ __html: descripcionCard }}
+                    />
+                    <Link href={`/eventos/evento${evento.id}`} className="mt-auto mx-auto w-full">
+                      <button className="w-full md:w-auto px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
+                        {t('buttonMoreInfo')}
+                      </button>
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </section>
       </main>

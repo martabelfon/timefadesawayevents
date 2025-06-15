@@ -130,3 +130,12 @@ body {
   font-family: 'CarlaLauren', sans-serif !important;
   font-weight: normal !important;
 }
+
+.cardDescripcion strong {
+  color: #000;
+  font-weight: bold;
+}
+.detalleDescripcion strong {
+  color: #FFD600;
+  font-weight: bold;
+}

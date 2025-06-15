@@ -11,13 +11,14 @@ import { useTranslation } from "react-i18next";
 const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
 type Lang = typeof SUPPORTED_LANGS[number];
 
-const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
-  if (obj && typeof obj === 'object' && typeof obj[lang] === 'string') return obj[lang];
+const safeGet = (obj: Record<string, string> | string, lang: string, fallback: string = ''): string => {
+  if (obj && typeof obj === 'object' && typeof (obj as Record<string, string>)[lang] === 'string') return (obj as Record<string, string>)[lang];
   if (obj && typeof obj === 'object') {
     for (const key of Object.keys(obj)) {
-      if (typeof obj[key] === 'string') return obj[key];
+      if (typeof (obj as Record<string, string>)[key] === 'string') return (obj as Record<string, string>)[key];
     }
   }
+  if (typeof obj === 'string') return obj;
   return fallback;
 };
 
@@ -58,11 +59,11 @@ export default function Evento5Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-4 mt-4">
-          {[safeGet(evento.descripcion1, lang), safeGet(evento.descripcion2, lang), safeGet(evento.descripcion3, lang), safeGet(evento.descripcion4, lang), safeGet(evento.descripcion5, lang), safeGet(evento.descripcion6, lang), safeGet(evento.descripcion7, lang)]
-            .filter(Boolean)
-            .map((desc, idx) => (
-              <p key={idx} className="text-white text-lg mb-2 text-justify">{desc}</p>
-            ))}
+          {[
+            evento.descripcion1 ?? {}, evento.descripcion2 ?? {}, evento.descripcion3 ?? {}, evento.descripcion4 ?? {}, evento.descripcion5 ?? {}, evento.descripcion6 ?? {}, evento.descripcion7 ?? {}
+          ].filter(Boolean).map((desc, idx) => (
+            <p key={idx} className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: safeGet(desc as Record<string, string> | string, lang) }} />
+          ))}
         </div>
         {evento.imagenes && evento.imagenes.length > 0 && (
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">

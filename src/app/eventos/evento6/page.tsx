@@ -22,11 +22,11 @@ const safeGet = (obj: Record<string, string> | string, lang: string, fallback: s
   return fallback;
 };
 
-const evento = eventos.find(e => e.id === "3");
+const evento = eventos.find(e => e.id === "6");
 
-export default function Evento3Page() {
-        const { t } = useTranslation('eventos');
-  
+export default function Evento6Page() {      
+  const { t } = useTranslation('eventos');
+
   const [lang, setLang] = useState<Lang>((SUPPORTED_LANGS.includes(i18n.language as Lang) ? i18n.language : 'es') as Lang);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Evento3Page() {
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-900">
       <NavBar isScrolled={false} />
       <section className="max-w-5xl mx-auto pt-[120px] pb-20 px-4 flex flex-col items-center">
-        <BlurText text={safeGet(evento.titulo, lang)} className="flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
+        <BlurText  text={safeGet(evento.titulo, lang)} className="flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
         <div className="w-full flex justify-center mb-8 mt-5">
           <div className="relative w-full max-w-lg h-64 md:h-80 rounded-xl overflow-hidden border-2 border-[color:var(--color-principal)]/40 mx-auto">
             <Image
@@ -60,7 +60,7 @@ export default function Evento3Page() {
         </div>
         <div className="w-full flex flex-col gap-4 mt-4">
           {[
-            evento.descripcion1 ?? {}, evento.descripcion2 ?? {}, evento.descripcion3 ?? {}, evento.descripcion4 ?? {}, evento.descripcion5 ?? {}, evento.descripcion6 ?? {}, evento.descripcion7 ?? {}
+            evento.descripcion1 ?? {}, evento.descripcion2 ?? {}, evento.descripcion3 ?? {}, evento.descripcion4 ?? {}, evento.descripcion5 ?? {}, evento.descripcion6 ?? {}, evento.descripcion7 ?? {}, evento.descripcion8 ?? {}, evento.descripcion9 ?? {}
           ].filter(Boolean).map((desc, idx) => (
             <p key={idx} className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: safeGet(desc as Record<string, string> | string, lang) }} />
           ))}

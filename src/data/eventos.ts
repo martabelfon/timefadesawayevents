@@ -1,4 +1,3 @@
-import { sign } from './../../node_modules/@types/three/src/Three.TSL.d';
 export interface Evento {
   id: string;
   titulo: {
@@ -67,6 +66,18 @@ export interface Evento {
     fr: string;
     de: string;
   };
+  descripcion8?: {
+    es: string;
+    en: string;
+    fr: string;
+    de: string;
+  };
+  descripcion9?: {
+    es: string;
+    en: string;
+    fr: string;
+    de: string;
+  };
   imagen?: string;
   imagenes?: string[];
   mostrarEnLanding: boolean;
@@ -82,10 +93,10 @@ export const eventos: Evento[] = [
       de: "Mallorca Rusty Concert: Neil Young 70. Geburtstag"
     },
    fecha: {
-      es: "12 de junio de 2015",
-      en: "June 12, 2015",
-      fr: "12 juin 2015",
-      de: "12. Juni 2015"
+      es: "28 de Noviembre de 2015",
+      en: "November 28, 2015",
+      fr: "28 Novembre 2015",
+      de: "28. November 2015"
     },
     ubicacion: {
       es: "Lloseta - Mallorca",
@@ -380,5 +391,89 @@ export const eventos: Evento[] = [
       "/images/eventos/eventoFreeWorldRockFest4.jpg"
     ],
     mostrarEnLanding: true
-  }
+  },
+  {
+  id: "6",
+  titulo: {
+    es: "Homenaje solidario a Neil Young por su 80º cumpleaños",
+    en: "Solidarity Tribute to <span style=\"color:var(--color-principal)\">Neil Young</span> for His 80th Birthday",
+    fr: "Hommage solidaire à <span style=\"color:var(--color-principal)\">Neil Young</span> pour ses 80 ans",
+    de: "Solidaritäts‑Tribut an <span style=\"color:var(--color-principal)\">Neil Young</span> zu seinem 80. Geburtstag"
+  },
+  fecha: {
+    es: "7 de noviembre de 2025",
+    en: "November 7, 2025",
+    fr: "7 novembre 2025",
+    de: "7. November 2025"
+  },
+  ubicacion: {
+    es: "Teatro de Lloseta, Mallorca",
+    en: "Lloseta Theatre, Mallorca",
+    fr: "Théâtre de Lloseta, Majorque",
+    de: "Theater von Lloseta, Mallorca"
+  },
+  descripcion: {
+    es: "La Asociación Cultural <span style=\"color:var(--color-principal)\">“Outoftheblueintotheblack”</span>, sin ánimo de lucro y representada por <span style=\"color:var(--color-principal)\">Timefadesawayevents</span>, anuncia con entusiasmo la celebración de un <span style=\"color:var(--color-principal)\">doble evento benéfico</span> en homenaje a <span style=\"color:var(--color-principal)\">Neil Young</span>, con motivo de su 80º aniversario.",
+    en: "The non‑profit Cultural Association <span style=\"color:var(--color-principal)\">“Outoftheblueintotheblack”</span>, represented by <span style=\"color:var(--color-principal)\">Timefadesawayevents</span>, enthusiastically announces a <span style=\"color:var(--color-principal)\">double charity event</span> paying tribute to <span style=\"color:var(--color-principal)\">Neil Young</span> on the occasion of his 80th birthday.",
+    fr: "L’association culturelle à but non lucratif <span style=\"color:var(--color-principal)\">“Outoftheblueintotheblack”</span>, représentée par <span style=\"color:var(--color-principal)\">Timefadesawayevents</span>, annonce avec enthousiasme un <span style=\"color:var(--color-principal)\">double événement caritatif</span> en hommage à <span style=\"color:var(--color-principal)\">Neil Young</span> à l’occasion de ses 80 ans.",
+    de: "Der gemeinnützige Kulturverein <span style=\"color:var(--color-principal)\">„Outoftheblueintotheblack“</span>, repräsentiert von <span style=\"color:var(--color-principal)\">Timefadesawayevents</span>, kündigt mit Begeisterung eine <span style=\"color:var(--color-principal)\">doppelte Wohltätigkeits‑Veranstaltung</span> zum Gedenken an <span style=\"color:var(--color-principal)\">Neil Young</span> anlässlich seines 80. Geburtstags an."
+  },
+  descripcion1: {
+    es: "Fieles a nuestro compromiso, organizamos <span style=\"color:var(--color-principal)\">eventos culturales solidarios</span>, con el objetivo de <span style=\"color:var(--color-principal)\">visibilizar y apoyar a colectivos con disfunción física o psíquica</span>, así como a entidades centradas en la <span style=\"color:var(--color-principal)\">mejora de la calidad de vida</span> y la <span style=\"color:var(--color-principal)\">ayuda social</span>. La defensa de la naturaleza, los animales y el entorno, es también parte esencial de nuestra misión.",
+    en: "True to our commitment, we organize <span style=\"color:var(--color-principal)\">solidarity cultural events</span> aimed at <span style=\"color:var(--color-principal)\">raising awareness and supporting groups with physical or mental dysfunction</span>, as well as organizations focused on <span style=\"color:var(--color-principal)\">improving quality of life</span> and <span style=\"color:var(--color-principal)\">social aid</span>. Defending nature, animals and the environment is also an essential part of our mission.",
+    fr: "Fidèles à notre engagement, nous organisons des <span style=\"color:var(--color-principal)\">événements culturels solidaires</span> visant à <span style=\"color:var(--color-principal)\">sensibiliser et soutenir des groupes en situation de handicap physique ou mental</span>, ainsi que des structures axées sur <span style=\"color:var(--color-principal)\">l’amélioration de la qualité de vie</span> et <span style=\"color:var(--color-principal)\">l’aide sociale</span>. La défense de la nature, des animaux et de l’environnement fait également partie intégrante de notre mission.",
+    de: "Getreu unserem Engagement veranstalten wir <span style=\"color:var(--color-principal)\">kulturelle Solidaritäts‑Events</span>, um <span style=\"color:var(--color-principal)\">Bewusstsein zu schaffen und Gruppen mit körperlicher oder geistiger Beeinträchtigung zu unterstützen</span>, sowie Organisationen, die sich auf <span style=\"color:var(--color-principal)\">Verbesserung der Lebensqualität</span> und <span style=\"color:var(--color-principal)\">soziale Hilfe</span> konzentrieren. Der Schutz der Natur, der Tiere und der Umwelt ist ebenfalls ein wesentlicher Teil unserer Mission."
+  },
+  descripcion2: {
+    es: "<span style=\"color:var(--color-principal)\">Un homenaje a la coherencia y el compromiso</span>",
+    en: "<span style=\"color:var(--color-principal)\">A Tribute to Integrity and Commitment</span>",
+    fr: "<span style=\"color:var(--color-principal)\">Un hommage à la cohérence et à l’engagement</span>",
+    de: "<span style=\"color:var(--color-principal)\">Eine Hommage an Integrität und Engagement</span>"
+  },
+  descripcion3: {
+    es: "Neil Young, figura legendaria y referente musical, representa también una actitud de vida comprometida con las causas sociales, medioambientales y humanas. Lejos del estereotipo del artista distante, Young ha sabido mantener una trayectoria basada en la coherencia, el activismo y la independencia, huyendo de la manipulación y la politización banal. <p>Es por ello que <span style=\"color:var(--color-principal)\">su 80º cumpleaños</span> nos ofrece una oportunidad única para rendirle tributo a través de la música y la solidaridad.</p>",
+    en: "Neil Young, a legendary figure and musical icon, also embodies a life dedicated to social, environmental and humanitarian causes. Far from the stereotype of a detached artist, Young has maintained a career rooted in integrity, activism and independence, steering clear of manipulation and trivial politicking.<p>That is why his <span style=\"color:var(--color-principal)\">80th birthday</span> presents a unique opportunity to honor him through music and solidarity.</p>",
+    fr: "Neil Young, figure légendaire et icône musicale, incarne également un engagement de vie envers des causes sociales, environnementales et humaines. Loin du stéréotype de l’artiste éloigné, Young a su conserver une trajectoire fondée sur la cohérence, l’activisme et l’indépendance, fuyant la manipulation et la politisation superficielle.<p>C’est pourquoi son <span style=\"color:var(--color-principal)\">80e anniversaire</span> nous offre une occasion unique de lui rendre hommage par la musique et la solidarité.</p>",
+    de: "Neil Young, eine legendäre Figur und musikalische Ikone, verkörpert ebenso eine Haltung des Lebens, die sich sozialen, ökologischen und humanitären Anliegen widmet. Weit entfernt vom Klischee des abgehobenen Künstlers hat Young stets eine Laufbahn der Integrität, des Aktivismus und der Unabhängigkeit bewahrt und sich von Manipulation und oberflächlicher Politisierung ferngehalten.<p>Deshalb bietet sein <span style=\"color:var(--color-principal)\">80. Geburtstag</span> eine einzigartige Gelegenheit, ihm durch Musik und Solidarität Tribut zu zollen.</p>"
+  },
+  descripcion4: {
+    es: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOBLE CITA SOLIDARIA</span><br></br><p><span style=\"color:var(--color-principal)\">Teatro de Lloseta (Mallorca)</span><br></br></p><p><span style=\"color:var(--color-principal)\">Fecha: 7 de noviembre de 2025</span></p><p>Volvemos al escenario que ya nos acogió en 2015. Una jornada de aproximadamente cuatro horas con <span style=\"color:var(--color-principal)\">formaciones musicales diversas</span>, de orígenes distintos, todas profundamente implicadas en la causa.</p>",
+    en: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOUBLE SOLIDARITY EVENT</span><br></br><p><span style=\"color:var(--color-principal)\">Lloseta Theatre (Mallorca)</span><br></br></p><p><span style=\"color:var(--color-principal)\">Date: November 7, 2025</span></p><p>We return to the stage that hosted us in 2015. A roughly four‑hour program featuring <span style=\"color:var(--color-principal)\">diverse musical ensembles</span> from varied backgrounds, all deeply committed to the cause.</p>",
+    fr: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOUBLE RENCONTRE SOLIDAIRE</span><br></br><p><span style=\"color:var(--color-principal)\">Théâtre de Lloseta (Majorque)</span><br></br></p><p><span style=\"color:var(--color-principal)\">Date : 7 novembre 2025</span><p>Nous retrouvons la scène qui nous a accueillis en 2015. Une journée d’environ quatre heures avec des <span style=\"color:var(--color-principal)\">formations musicales diverses</span>, d’origines multiples, toutes profondément investies dans la cause.",
+    de: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOPPELTE SOLIDARITÄTS‑VERANSTALTUNG</span><br></br><p><span style=\"color:var(--color-principal)\">Theater von Lloseta (Mallorca)</span><br></br></p><p><span style=\"color:var(--color-principal)\">Datum: 7. November 2025</span></p><p>Wir kehren zurück auf die Bühne, die uns bereits 2015 beherbergte. Ein etwa vierstündiges Programm mit <span style=\"color:var(--color-principal)\">verschiedenen Musikformationen</span> aus unterschiedlichsten Hintergründen, die alle tief mit der Sache verbunden sind.</p>"
+  },
+  descripcion5: {
+    es: "<span style=\"color:var(--color-principal)\">Fecha y recinto: en proceso de confirmación</span> <p>Debido a la gran acogida en redes sociales y la demanda popular, estamos ultimando los detalles para un evento de gran formato en Madrid.</p><p>Contaremos con artistas de primer nivel y un aforo previsto de más de <span style=\"color:var(--color-principal)\">500 personas</span>.</p>",
+    en: "<span style=\"color:var(--color-principal)\">Date and venue: pending confirmation</span><p>Due to the overwhelming response on social media and popular demand, we are finalizing details for a large‑scale event in Madrid.</p><p>We will feature top‑level artists and expect an audience of over <span style=\"color:var(--color-principal)\">500 people</span>.</p>",
+    fr: "<span style=\"color:var(--color-principal)\">Date et lieu : en cours de confirmation</span><p>En raison de l’accueil enthousiaste sur les réseaux sociaux et de la forte demande, nous finalisons les détails d’un événement de grande envergure à Madrid.</p><p>Nous accueillerons des artistes de premier plan et prévoyons une affluence de plus de <span style=\"color:var(--color-principal)\">500 personnes</span>.</p>",
+    de: "<span style=\"color:var(--color-principal)\">Datum und Veranstaltungsort: noch nicht bestätigt</span><p>Aufgrund der großen Resonanz in den sozialen Medien und der hohen Nachfrage finalisieren wir die Details für ein Großformat‑Event in Madrid.</p><p>Wir werden Künstler/innen auf höchstem Niveau präsentieren und rechnen mit mehr als <span style=\"color:var(--color-principal)\">500 Personen</span>.</p>"
+  },
+  descripcion6: {
+    es: "<span style=\"color:var(--color-principal)\">Un evento 100 % benéfico</span><br></br><p><span style=\"color:var(--color-principal)\">La recaudación íntegra</span> de ambos conciertos será destinada a <span style=\"color:var(--color-principal)\">asociaciones y colectivos que trabajan activamente con personas en situación de vulnerabilidad</span>, ya sea física, mental o social. Esta acción busca f<span style=\"color:var(--color-principal)\">ortalecer su labor</span>, darles visibilidad y generar un impacto positivo directo.</p>",
+    en: "<span style=\"color:var(--color-principal)\">A 100 % charity event</span><br></br><p><span style=\"color:var(--color-principal)\">All proceeds</span> from both concerts will go to <span style=\"color:var(--color-principal)\">associations and groups working actively with vulnerable people</span>, whether physically, mentally or socially disadvantaged. This initiative seeks to <span style=\"color:var(--color-principal)\">strengthen their work</span>, raise visibility and generate a direct positive impact.</p>",
+    fr: "<span style=\"color:var(--color-principal)\">Un événement 100 % caritatif</span><br></br><p><span style=\"color:var(--color-principal)\">L’ensemble des recettes</span> des deux concerts sera destiné à <span style=\"color:var(--color-principal)\">des associations et groupes œuvrant activement auprès de personnes vulnérables</span>, sur les plans physique, mental ou social. Cette action vise à <span style=\"color:var(--color-principal)\">renforcer leur travail</span>, à augmenter leur visibilité et à générer un impact positif direct.</p>",
+    de: "<span style=\"color:var(--color-principal)\">Ein zu 100 % gemeinnütziges Event</span><br></br><p><span style=\"color:var(--color-principal)\">Der gesamte Erlös</span> beider Konzerte geht an <span style=\"color:var(--color-principal)\">Vereine und Initiativen, die aktiv mit schutzbedürftigen Menschen arbeiten</span>, sei es körperlich, psychisch oder sozial benachteiligt. Diese Aktion zielt darauf ab, ihre Arbeit zu <span style=\"color:var(--color-principal)\">stärken</span>, ihre Sichtbarkeit zu erhöhen und eine direkte positive Wirkung zu erzeugen.</p>",
+  },
+  descripcion7: {
+    es: "<span style=\"color:var(--color-principal); font-weight:bold;\">Para más información y entrevistas:</span>",
+    en: "<span style=\"color:var(--color-principal); font-weight:bold;\">For more information and interviews:</span>",
+    fr: "<span style=\"color:var(--color-principal); font-weight:bold;\">Pour plus d’informations et interviews :</span>",
+    de: "<span style=\"color:var(--color-principal); font-weight:bold;\">Für weitere Informationen und Interviews:</span>",
+  },
+  descripcion8: {
+    es: "<span style=\"color:var(--color-principal)\">Web oficial:</span> www.timefadesawayevents.com</p><p><span style=\"color:var(--color-principal)\">Correo de contacto:</span> info@timefadesawayevents.com</p><p><span style=\"color:var(--color-principal)\">Facebook:</span> Time Fades Away Events</p><p><span style=\"color:var(--color-principal)\">Instagram:</span> @timefadesawayevents",
+    en: "<span style=\"color:var(--color-principal)\">For more information and interviews:</span><p><span style=\"color:var(--color-principal)\">Official website:</span> www.timefadesawayevents.com</p><p><span style=\"color:var(--color-principal)\">Contact email:</span> info@timefadesawayevents.com</p><p><span style=\"color:var(--color-principal)\">Facebook:</span> Time Fades Away Events</p><p><span style=\"color:var(--color-principal)\">Instagram:</span> @timefadesawayevents",
+    fr: "<span style=\"color:var(--color-principal)\">Pour plus d’informations et interviews :</span><p><span style=\"color:var(--color-principal)\">Site officiel :</span> www.timefadesawayevents.com</p><p><span style=\"color:var(--color-principal)\">Email de contact :</span> info@timefadesawayevents.com</p><p><span style=\"color:var(--color-principal)\">Facebook :</span> Time Fades Away Events</p><p><span style=\"color:var(--color-principal)\">Instagram :</span> @timefadesawayevents",
+    de: "<span style=\"color:var(--color-principal)\">Für weitere Informationen und Interviews:</span><p><span style=\"color:var(--color-principal)\">Offizielle Website:</span> www.timefadesawayevents.com</p><p><span style=\"color:var(--color-principal)\">Kontakt‑E‑Mail:</span> info@timefadesawayevents.com</p><p><span style=\"color:var(--color-principal)\">Facebook:</span> Time Fades Away Events</p><p><span style=\"color:var(--color-principal)\">Instagram:</span> @timefadesawayevents"
+  },
+  descripcion9: {
+    es: "<span style=\"color:var(--color-principal)\">Invitamos a medios, instituciones y ciudadanía</span> a sumarse a esta iniciativa, a difundirla y a participar activamente en un homenaje que une música, conciencia social y esperanza.</p><p><span style=\"color:var(--color-principal)\">Porque la cultura puede, y debe, ser una herramienta de cambio.</span></p>",
+    en: "<span style=\"color:var(--color-principal)\">We invite media, institutions and the public</span> to join this initiative, spread the word and actively participate in a tribute that brings together music, social awareness and hope.</p><p><span style=\"color:var(--color-principal)\">Because culture can, and must, be a tool for change.</span></p>",
+    fr: "<span style=\"color:var(--color-principal)\">Nous invitons les médias, institutions et le public</span> à rejoindre cette initiative, la diffuser et participer activement à un hommage qui unit musique, conscience sociale et espoir.</p><p><span style=\"color:var(--color-principal)\">Parce que la culture peut, et doit, être un outil de changement.</span></p>",
+    de: "<span style=\"color:var(--color-principal)\">Wir laden Medien, Institutionen und die Öffentlichkeit</span> ein, sich dieser Initiative anzuschließen, sie zu verbreiten und aktiv an einem Tribut teilzunehmen, der Musik, soziales Bewusstsein und Hoffnung vereint.</p><p><span style=\"color:var(--color-principal)\">Weil Kultur ein Werkzeug des Wandels sein kann und muss.</span></p>"
+  },
+  imagen: "/images/eventos/neilYoung.jpg",
+  imagenes: [],
+  mostrarEnLanding: true
+}
 ];
