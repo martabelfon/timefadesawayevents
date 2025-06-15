@@ -40,7 +40,7 @@ const Noticias = () => {
     return () => i18n.off('languageChanged', handleLangChange);
   }, []);
 
-  const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
+  const safeGet = (obj: Record<string, string> | string | undefined, lang: string, fallback: string = ''): string => {
     if (obj && typeof obj === 'object' && typeof obj[lang] === 'string') return obj[lang];
     if (obj && typeof obj === 'object') {
       // Devuelve el primer string disponible
@@ -48,6 +48,7 @@ const Noticias = () => {
         if (typeof obj[key] === 'string') return obj[key];
       }
     }
+    if (typeof obj === 'string') return obj;
     return fallback;
   };
 
@@ -99,7 +100,7 @@ const Noticias = () => {
                   <button
                     className="px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors"
                   >
-                    text={{
+                    {{
                       es: "Saber más",
                       en: "Read more",
                       fr: "En savoir plus",

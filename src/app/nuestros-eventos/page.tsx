@@ -63,8 +63,8 @@ const eventosOrdenados = [...eventosData].sort((a, b) => {
     return new Date(parseInt(anio), mes, dia);
   }
   // Usar siempre la fecha en español para ordenar
-  return parseFechaEvento(b.fecha.es).getTime() - parseFechaEvento(a.fecha.es).getTime();
-});
+  return parseFechaEvento(a.fecha.es).getTime() - parseFechaEvento(b.fecha.es).getTime();
+}).reverse();
 
 const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
 type Lang = typeof SUPPORTED_LANGS[number];

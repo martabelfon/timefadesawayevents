@@ -3,7 +3,6 @@
 import { noticias } from "@/data/noticias";
 import NavBar from '@/molecules/navbar';
 import BlurText from "@/atoms/titleLandingBlur";
-import Image from "next/image";
 import i18n from '@/lib/i18n';
 import { useEffect, useState } from 'react';
 import { useTranslation } from "react-i18next";
@@ -11,13 +10,14 @@ import { useTranslation } from "react-i18next";
 const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
 type Lang = typeof SUPPORTED_LANGS[number];
 
-const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
+const safeGet = (obj: Record<string, string> | string | undefined, lang: string, fallback: string = ''): string => {
   if (obj && typeof obj === 'object' && typeof obj[lang] === 'string') return obj[lang];
   if (obj && typeof obj === 'object') {
     for (const key of Object.keys(obj)) {
       if (typeof obj[key] === 'string') return obj[key];
     }
   }
+  if (typeof obj === 'string') return obj;
   return fallback;
 };
 

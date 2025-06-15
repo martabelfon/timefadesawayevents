@@ -10,17 +10,19 @@ import { Stars } from '@react-three/drei';
 import FooterPages from '@/molecules/footerPages';
 import Link from 'next/link';
 import i18n from '@/lib/i18n';
+import Image from 'next/image';
 
 const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
 type Lang = typeof SUPPORTED_LANGS[number];
 
-const safeGet = (obj: any, lang: string, fallback: string = ''): string => {
+const safeGet = (obj: Record<string, string> | string | undefined, lang: string, fallback: string = ''): string => {
   if (obj && typeof obj === 'object' && typeof obj[lang] === 'string') return obj[lang];
   if (obj && typeof obj === 'object') {
     for (const key of Object.keys(obj)) {
       if (typeof obj[key] === 'string') return obj[key];
     }
   }
+  if (typeof obj === 'string') return obj;
   return fallback;
 };
 
@@ -86,7 +88,7 @@ const NoticiasPage = () => {
               className="text-white text-4xl sm:text-5xl md:text-6xl gendy-font text-center mb-6"
             />
             <div className="w-full flex flex-row flex-nowrap gap-8 justify-center items-center overflow-x-auto md:overflow-x-visible px-2 md:px-0 mx-auto mt-10">
-              {noticiasMostrar.map((noticia, idx) => (
+              {noticiasMostrar.map((noticia) => (
                 <div
                   key={noticia.id}
                   className={
@@ -97,11 +99,13 @@ const NoticiasPage = () => {
                   }
                 >
                   <div className="relative w-full h-48">
-                    <img
+                    <Image
                       src={noticia.imagen}
                       alt={safeGet(noticia.titulo, lang)}
                       className="object-cover w-full h-full rounded-t-2xl"
                       style={{ objectFit: 'cover' }}
+                      width={500}
+                      height={200}
                     />
                     <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
                       {safeGet(noticia.fecha, lang)}
