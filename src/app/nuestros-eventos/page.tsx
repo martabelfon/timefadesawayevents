@@ -125,7 +125,7 @@ const NuestrosEventos = () => {
                       alt={`Imagen del ${evento.titulo}`}
                       fill
                       className="object-cover w-full h-full rounded-t-2xl"
-                      style={{ objectFit: 'cover' }}
+                      style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
                       priority={i < 2}
                     />
                     <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
