@@ -472,7 +472,7 @@ export const eventos: Evento[] = [
     fr: "<span style=\"color:var(--color-principal)\">Nous invitons les médias, institutions et le public</span> à rejoindre cette initiative, la diffuser et participer activement à un hommage qui unit musique, conscience sociale et espoir.</p><p><span style=\"color:var(--color-principal)\">Parce que la culture peut, et doit, être un outil de changement.</span></p>",
     de: "<span style=\"color:var(--color-principal)\">Wir laden Medien, Institutionen und die Öffentlichkeit</span> ein, sich dieser Initiative anzuschließen, sie zu verbreiten und aktiv an einem Tribut teilzunehmen, der Musik, soziales Bewusstsein und Hoffnung vereint.</p><p><span style=\"color:var(--color-principal)\">Weil Kultur ein Werkzeug des Wandels sein kann und muss.</span></p>"
   },
-  imagen: "/images/eventos/neilYoung.jpg",
+  imagen: "/images/eventos/neilYoung.jpeg",
   imagenes: [],
   mostrarEnLanding: true
 }
