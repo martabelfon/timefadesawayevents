@@ -45,16 +45,18 @@ export default function Evento3Page() {
       <section className="max-w-5xl mx-auto pt-[120px] pb-20 px-4 flex flex-col items-center">
         <BlurText text={safeGet(evento.titulo, lang)} className="flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
         <div className="w-full flex justify-center mb-8 mt-5">
-          <div className="relative w-full max-w-lg h-64 md:h-80 rounded-xl overflow-hidden border-2 border-[color:var(--color-principal)]/40 mx-auto">
-            <Image
-              src={evento.imagen || '/default.jpg'}
-              alt={safeGet(evento.titulo, lang)}
-              fill
-              className="object-cover rounded-xl"
-              priority
-            />
-            <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
-              {safeGet(evento.fecha, lang)}
+          <div className="relative w-full max-w-lg mx-auto overflow-hidden border-2 border-[color:var(--color-principal)]/40 rounded-xl bg-black">
+            <div className="w-full h-auto max-h-[700px] flex items-center justify-center">
+              <img
+                src={evento.imagen || '/default.jpg'}
+                alt={safeGet(evento.titulo, lang)}
+                width={900}
+                height={600}
+                className="object-contain w-full h-auto"
+              />
+              <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
+                {safeGet(evento.fecha, lang)}
+              </div>
             </div>
           </div>
         </div>
@@ -68,8 +70,14 @@ export default function Evento3Page() {
         {evento.imagenes && evento.imagenes.length > 0 && (
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
             {evento.imagenes.map((img, idx) => (
-              <div key={idx} className="relative w-full h-48 rounded-lg overflow-hidden border-2 border-[color:var(--color-principal)]/30">
-                <Image src={img} alt={safeGet(evento.titulo, lang) + ' extra ' + idx} fill className="object-cover" />
+              <div key={idx} className="relative w-full h-48 rounded-lg overflow-hidden border-2 border-[color:var(--color-principal)]/30 group bg-black">
+                <Image 
+                  src={img} 
+                  alt={safeGet(evento.titulo, lang) + ' extra ' + idx} 
+                  fill 
+                  className="transition-all duration-500 object-cover group-hover:object-contain group-hover:scale-100" 
+                  style={{objectPosition: 'center'}}
+                />
               </div>
             ))}
           </div>

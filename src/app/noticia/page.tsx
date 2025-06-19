@@ -4,13 +4,11 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '@/molecules/navbar';
 import BlurText from '@/atoms/titleLandingBlur';
 import { noticias } from '@/data/noticias';
-import { ColorAnimationBackground } from '@/atoms/ ColorAnimationBackground';
-import { Canvas } from '@react-three/fiber';
-import { Stars } from '@react-three/drei';
 import FooterPages from '@/molecules/footerPages';
 import Link from 'next/link';
 import i18n from '@/lib/i18n';
 import Image from 'next/image';
+import dynamic from "next/dynamic";
 
 const SUPPORTED_LANGS = ['es', 'en', 'fr', 'de'] as const;
 type Lang = typeof SUPPORTED_LANGS[number];
@@ -25,6 +23,8 @@ const safeGet = (obj: Record<string, string> | string | undefined, lang: string,
   if (typeof obj === 'string') return obj;
   return fallback;
 };
+
+const FondoEstrellas = dynamic(() => import("@/molecules/fondoEstrellas"), { ssr: false });
 
 const NoticiasPage = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -66,27 +66,24 @@ const NoticiasPage = () => {
 
   return (
     <>
-      <ColorAnimationBackground className="relative min-h-screen overflow-hidden bg-gray-950 text-gray-200 flex flex-col items-center justify-start">
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <Canvas>
-            <Stars radius={50} count={2500} factor={4} fade speed={2} />
-          </Canvas>
-        </div>
+      <FondoEstrellas className="bg-gray-950 text-gray-200">
         <NavBar isScrolled={isScrolled} />
-        <main className="w-full max-w-6xl flex flex-col items-center px-4 sm:px-6 mt-[90px]">
+        <main className="relative w-full z-10 flex flex-col items-center justify-center min-h-screen">
           <section
-            id="noticias"
-            className="w-full flex flex-col items-center justify-center pb-20"
+            id="noticias-section"
+            className="relative z-20 w-full flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 pt-[100px] md:pt-[120px] pb-16 md:pb-20 min-h-screen gap-8 md:gap-12"
           >
-            <BlurText
-              text={{
-                es: 'Lo más reciente que debes saber',
-                en: 'The latest you should know',
-                fr: 'Les dernières nouvelles à savoir',
-                de: 'Das Neueste, was du wissen solltest'
-              }[lang]}
-              className="text-white text-4xl sm:text-5xl md:text-6xl gendy-font text-center mb-6"
-            />
+            <div className="mt-10 md:mt-20 w-full">
+              <BlurText
+                text={{
+                  es: 'Lo más reciente que debes saber',
+                  en: 'The latest you should know',
+                  fr: 'Les dernières nouvelles à savoir',
+                  de: 'Das Neueste, was du wissen solltest'
+                }[lang]}
+                className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl gendy-font text-center mb-6 px-2"
+              />
+            </div>
             <div className="w-full flex flex-row flex-nowrap gap-8 justify-center items-center overflow-x-auto md:overflow-x-visible px-2 md:px-0 mx-auto mt-10">
               {noticiasMostrar.map((noticia) => (
                 <div
@@ -112,13 +109,13 @@ const NoticiasPage = () => {
                     </div>
                   </div>
                   <div className="p-6 flex-1 flex flex-col justify-between">
-                    <h3 className="gendy-font text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">
+                    <h3 className="gendy-font text-xl font-bold mb-2 text-gray-950 drop-shadow-md text-center">
                       {safeGet(noticia.titulo, lang)}
                     </h3>
                     <p className="text-gray-700 text-base text-center mb-2">{safeGet(noticia.descripcion, lang)}</p>
                     {safeGet(noticia.descripcion2, lang) && (
-                      <Link href={`/noticias/noticia1`} className="mt-2 mx-auto">
-                        <button className="px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
+                      <Link href={`/noticias/noticia1`} className="mt-2 mx-auto w-full flex justify-center">
+                        <button className="w-full px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
                           {lang === 'es' ? 'Saber más' : lang === 'en' ? 'Read more' : lang === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
                         </button>
                       </Link>
@@ -129,8 +126,8 @@ const NoticiasPage = () => {
             </div>
           </section>
         </main>
-      </ColorAnimationBackground>
-      <FooterPages />
+        <FooterPages />
+      </FondoEstrellas>
     </>
   );
 };

@@ -383,12 +383,14 @@ export const eventos: Evento[] = [
       fr: "Le festival a eu lieu dans la salle Aperitoche, située au C.C. Copenhague, 10, à Las Rozas, Madrid.",
       de: "Das Festival fand in der Aperitoche-Halle statt, die sich im C.C. Kopenhagen, 10, in Las Rozas, Madrid, befindet."
     },
-    imagen: "/images/eventos/eventoFreeWorldRockFest.jpg",
+    imagen: "/images/eventos/eventoFreeWorldRockFest.jpeg",
     imagenes: [
       "/images/eventos/eventoFreeWorldRockFest1.jpg",
       "/images/eventos/eventoFreeWorldRockFest2.jpg",
       "/images/eventos/eventoFreeWorldRockFest3.jpg",
-      "/images/eventos/eventoFreeWorldRockFest4.jpg"
+      "/images/eventos/eventoFreeWorldRockFest4.jpg",
+      "/images/eventos/eventoFreeWorldRockFest5.jpeg"
+
     ],
     mostrarEnLanding: true
   },
@@ -437,10 +439,10 @@ export const eventos: Evento[] = [
     de: "Neil Young, eine legendäre Figur und musikalische Ikone, verkörpert ebenso eine Haltung des Lebens, die sich sozialen, ökologischen und humanitären Anliegen widmet. Weit entfernt vom Klischee des abgehobenen Künstlers hat Young stets eine Laufbahn der Integrität, des Aktivismus und der Unabhängigkeit bewahrt und sich von Manipulation und oberflächlicher Politisierung ferngehalten.<p>Deshalb bietet sein <span style=\"color:var(--color-principal)\">80. Geburtstag</span> eine einzigartige Gelegenheit, ihm durch Musik und Solidarität Tribut zu zollen.</p>"
   },
   descripcion4: {
-    es: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOBLE CITA SOLIDARIA</span><br></br><p><span style=\"color:var(--color-principal)\">Teatro de Lloseta (Mallorca)</span><br></br></p><p><span style=\"color:var(--color-principal)\">Fecha: 7 de noviembre de 2025</span></p><p>Volvemos al escenario que ya nos acogió en 2015. Una jornada de aproximadamente cuatro horas con <span style=\"color:var(--color-principal)\">formaciones musicales diversas</span>, de orígenes distintos, todas profundamente implicadas en la causa.</p>",
-    en: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOUBLE SOLIDARITY EVENT</span><br></br><p><span style=\"color:var(--color-principal)\">Lloseta Theatre (Mallorca)</span><br></br></p><p><span style=\"color:var(--color-principal)\">Date: November 7, 2025</span></p><p>We return to the stage that hosted us in 2015. A roughly four‑hour program featuring <span style=\"color:var(--color-principal)\">diverse musical ensembles</span> from varied backgrounds, all deeply committed to the cause.</p>",
-    fr: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOUBLE RENCONTRE SOLIDAIRE</span><br></br><p><span style=\"color:var(--color-principal)\">Théâtre de Lloseta (Majorque)</span><br></br></p><p><span style=\"color:var(--color-principal)\">Date : 7 novembre 2025</span><p>Nous retrouvons la scène qui nous a accueillis en 2015. Une journée d’environ quatre heures avec des <span style=\"color:var(--color-principal)\">formations musicales diverses</span>, d’origines multiples, toutes profondément investies dans la cause.",
-    de: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOPPELTE SOLIDARITÄTS‑VERANSTALTUNG</span><br></br><p><span style=\"color:var(--color-principal)\">Theater von Lloseta (Mallorca)</span><br></br></p><p><span style=\"color:var(--color-principal)\">Datum: 7. November 2025</span></p><p>Wir kehren zurück auf die Bühne, die uns bereits 2015 beherbergte. Ein etwa vierstündiges Programm mit <span style=\"color:var(--color-principal)\">verschiedenen Musikformationen</span> aus unterschiedlichsten Hintergründen, die alle tief mit der Sache verbunden sind.</p>"
+    es: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOBLE CITA SOLIDARIA</span><br></br><p><span style=\"color:var(--color-principal)\">Fecha y recinto: en proceso de confirmación</span><br></br></p><p><span style=\"color:var(--color-principal)\"></span></p><p>Volvemos al escenario que ya nos acogió en 2015. Una jornada de aproximadamente cuatro horas con <span style=\"color:var(--color-principal)\">formaciones musicales diversas</span>, de orígenes distintos, todas profundamente implicadas en la causa.</p>",
+    en: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOUBLE SOLIDARITY EVENT</span><br></br><p><span style=\"color:var(--color-principal)\">Date and venue: pending confirmation</span><br></br></p><p><span style=\"color:var(--color-principal)\"></span></p><p>We return to the stage that hosted us in 2015. A roughly four‑hour program featuring <span style=\"color:var(--color-principal)\">diverse musical ensembles</span> from varied backgrounds, all deeply committed to the cause.</p>",
+    fr: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOUBLE RENCONTRE SOLIDAIRE</span><br></br><p><span style=\"color:var(--color-principal)\">Date et lieu : en cours de confirmation</span><br></br></p><p><span style=\"color:var(--color-principal)\"></span><p>Nous retrouvons la scène qui nous a accueillis en 2015. Une journée d’environ quatre heures avec des <span style=\"color:var(--color-principal)\">formations musicales diverses</span>, d’origines multiples, toutes profondément investies dans la cause.",
+    de: "<span style=\"color:var(--color-principal); font-weight:bold;\">DOPPELTE SOLIDARITÄTS‑VERANSTALTUNG</span><br></br><p><span style=\"color:var(--color-principal)\">Datum und Veranstaltungsort: noch nicht bestätigt</span><br></br></p><p><span style=\"color:var(--color-principal)\"></span></p><p>Wir kehren zurück auf die Bühne, die uns bereits 2015 beherbergte. Ein etwa vierstündiges Programm mit <span style=\"color:var(--color-principal)\">verschiedenen Musikformationen</span> aus unterschiedlichsten Hintergründen, die alle tief mit der Sache verbunden sind.</p>"
   },
   descripcion5: {
     es: "<span style=\"color:var(--color-principal)\">Fecha y recinto: en proceso de confirmación</span> <p>Debido a la gran acogida en redes sociales y la demanda popular, estamos ultimando los detalles para un evento de gran formato en Madrid.</p><p>Contaremos con artistas de primer nivel y un aforo previsto de más de <span style=\"color:var(--color-principal)\">500 personas</span>.</p>",
