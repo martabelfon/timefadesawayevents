@@ -133,7 +133,7 @@ const NuestrosEventos = () => {
                     </div>
                   </div>
                   <div className="p-4 md:p-6 flex-1 flex flex-col justify-between">
-                    <h3 className="gendy-font text-lg md:text-xl font-bold mb-2 text-[color:var(--color-principal)] drop-shadow-md text-center">
+                    <h3 className="gendy-font text-lg md:text-xl font-bold mb-2 text-grey-950 drop-shadow-md text-center">
                       {evento.titulo[lang]}
                     </h3>
                     <p

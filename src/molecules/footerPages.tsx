@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
 
 const FooterPages = () => {
   const { t } = useTranslation('footer');
@@ -49,12 +50,12 @@ const FooterPages = () => {
               <path d="M16 8h-2a2 2 0 0 0-2 2v2h4l-.5 3H12v7" strokeWidth="2" />
             </svg>
           </a>
-          <a href="/contacto" aria-label="Email" className="hover:opacity-80">
+          <Link href="/contacto" aria-label="Email" className="hover:opacity-80">
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-[color:var(--color-principal)]">
               <rect width="20" height="16" x="2" y="4" rx="4" strokeWidth="2" />
               <path d="M4 6l8 7 8-7" strokeWidth="2" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
