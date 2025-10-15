@@ -62,11 +62,46 @@ export default function Evento6Page() {
           </div>
         </div>
         <div className="w-full flex flex-col gap-4 mt-4">
-          {[
-            evento.descripcion1 ?? {}, evento.descripcion2 ?? {}, evento.descripcion3 ?? {}, evento.descripcion4 ?? {}, evento.descripcion5 ?? {}, evento.descripcion6 ?? {}, evento.descripcion7 ?? {}, evento.descripcion8 ?? {}, evento.descripcion9 ?? {}, evento.descripcion10 ?? {}, evento.descripcion11 ?? {}
-          ].filter(Boolean).map((desc, idx) => (
-            <p key={idx} className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: safeGet(desc as Record<string, string> | string, lang) }} />
-          ))}
+          {/* Descripciones 1, 2 y 3 */}
+          {[evento.descripcion1, evento.descripcion2, evento.descripcion3]
+            .filter(Boolean)
+            .map((desc, idx) => (
+              <p key={idx} className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: safeGet(desc as Record<string, string> | string, lang) }} />
+            ))}
+
+          {/* Imagen y descripcion5+ en layout horizontal si hay imagen */}
+          {(() => {
+            const imgUrl = safeGet(evento.descripcionImg ?? {}, lang, '');
+            const descsRestantes = [evento.descripcion5, evento.descripcion6, evento.descripcion7, evento.descripcion8, evento.descripcion9, evento.descripcion10]
+              .filter(Boolean)
+              .map((desc, idx) => (
+                <p key={"descRestante"+idx} className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: safeGet(desc as Record<string, string> | string, lang) }} />
+              ));
+            const desc11 = evento.descripcion11 ? (
+              <div className="w-full mt-6">
+                <p className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: safeGet(evento.descripcion11, lang) }} />
+              </div>
+            ) : null;
+            if (imgUrl && (imgUrl.startsWith('/') || imgUrl.startsWith('http'))) {
+              return (
+                <>
+                  <div className="w-full flex flex-col md:flex-row gap-6 items-start my-4">
+                    <div className="w-full md:w-1/2 flex justify-center mb-4 md:mb-0">
+                      <img
+                        src={imgUrl}
+                        alt={safeGet(evento.titulo, lang) + ' cartel'}
+                        style={{ maxWidth: '400px', width: '100%', height: 'auto', display: 'block' }}
+                      />
+                    </div>
+                    <div className="w-full md:w-1/2 flex flex-col">{descsRestantes}</div>
+                  </div>
+                  {desc11}
+                </>
+              );
+            } else {
+              return <>{descsRestantes}{desc11}</>;
+            }
+          })()}
         </div>
         {evento.imagenes && evento.imagenes.length > 0 && (
           <div className="w-full flex flex-col items-center mt-8">
