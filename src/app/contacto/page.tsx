@@ -51,7 +51,7 @@ export default function ContactPage() {
           <BlurText text={t('title')} className="flex items-center justify-center text-white text-3xl gendy-font text-center sm:text-5xl md:text-7xl" />
         </div>
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-6xl mx-auto mt-10">
-          <div className="w-full md:w-7/12 flex flex-col items-center mb-8 md:mb-0">
+          <div className="w-full md:w-7/12 flex flex-col items-center mb-8 md:mb-0 text-white">
             <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description1')}</p>
             <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description2')}</p>
             <p className="text-center text-lg sm:text-xl md:text-2xl mb-4">{t('description3')}</p>

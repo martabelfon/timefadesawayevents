@@ -52,7 +52,8 @@ export default function Evento6Page() {
                 alt={safeGet(evento.titulo, lang)}
                 width={900}
                 height={600}
-                className="object-contain w-full h-auto"
+                className="object-contain w-auto max-w-full h-auto"
+                style={{ display: 'block', margin: '0 auto' }}
               />
               <div className="absolute top-3 left-3 bg-[color:var(--color-principal)] text-gray-900 text-xs font-bold px-3 py-1 rounded-full shadow">
                 {safeGet(evento.fecha, lang)}
@@ -62,16 +63,20 @@ export default function Evento6Page() {
         </div>
         <div className="w-full flex flex-col gap-4 mt-4">
           {[
-            evento.descripcion1 ?? {}, evento.descripcion2 ?? {}, evento.descripcion3 ?? {}, evento.descripcion4 ?? {}, evento.descripcion5 ?? {}, evento.descripcion6 ?? {}, evento.descripcion7 ?? {}, evento.descripcion8 ?? {}, evento.descripcion9 ?? {}
+            evento.descripcion1 ?? {}, evento.descripcion2 ?? {}, evento.descripcion3 ?? {}, evento.descripcion4 ?? {}, evento.descripcion5 ?? {}, evento.descripcion6 ?? {}, evento.descripcion7 ?? {}, evento.descripcion8 ?? {}, evento.descripcion9 ?? {}, evento.descripcion10 ?? {}, evento.descripcion11 ?? {}
           ].filter(Boolean).map((desc, idx) => (
             <p key={idx} className="text-white text-lg mb-2 text-justify" dangerouslySetInnerHTML={{ __html: safeGet(desc as Record<string, string> | string, lang) }} />
           ))}
         </div>
         {evento.imagenes && evento.imagenes.length > 0 && (
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+          <div className="w-full flex flex-col items-center mt-8">
             {evento.imagenes.map((img, idx) => (
-              <div key={idx} className="relative w-full h-48 rounded-lg overflow-hidden border-2 border-[color:var(--color-principal)]/30">
-                <Image src={img} alt={safeGet(evento.titulo, lang) + ' extra ' + idx} fill className="object-cover" />
+              <div key={idx} className="w-full flex justify-center mb-6">
+                <img
+                  src={img}
+                  alt={safeGet(evento.titulo, lang) + ' extra ' + idx}
+                  style={{ maxWidth: '400px', width: '100%', height: 'auto', display: 'block' }}
+                />
               </div>
             ))}
           </div>

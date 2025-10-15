@@ -94,6 +94,7 @@ const NoticiasPage = () => {
                       ? 'max-w-xs min-w-[75vw] sm:min-w-[340px] md:w-[340px] lg:w-[380px]'
                       : 'max-w-xs min-w-[75vw] sm:min-w-[300px] md:w-[300px] lg:w-[340px]')
                   }
+                  style={{ minHeight: '520px', height: '520px' }}
                 >
                   <div className="relative w-full h-48">
                     <Image
@@ -108,13 +109,13 @@ const NoticiasPage = () => {
                       {safeGet(noticia.fecha, lang)}
                     </div>
                   </div>
-                  <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div className="p-6 flex-1 flex flex-col justify-between overflow-hidden">
                     <h3 className="gendy-font text-xl font-bold mb-2 text-gray-950 drop-shadow-md text-center">
                       {safeGet(noticia.titulo, lang)}
                     </h3>
-                    <p className="text-gray-700 text-base text-center mb-2">{safeGet(noticia.descripcion, lang)}</p>
+                    <p className="text-gray-700 text-base text-center mb-2 line-clamp-4">{safeGet(noticia.descripcion, lang)}</p>
                     {safeGet(noticia.descripcion2, lang) && (
-                      <Link href={`/noticias/noticia1`} className="mt-2 mx-auto w-full flex justify-center">
+                      <Link href={`/noticias/${noticia.id}`} className="mt-2 mx-auto w-full flex justify-center">
                         <button className="w-full px-4 py-2 rounded bg-[color:var(--color-principal)] text-white font-semibold shadow hover:bg-[color:var(--color-principal-dark)] transition-colors">
                           {lang === 'es' ? 'Saber más' : lang === 'en' ? 'Read more' : lang === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
                         </button>
