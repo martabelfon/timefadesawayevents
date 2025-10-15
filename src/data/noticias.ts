@@ -20,6 +20,24 @@ export interface Noticia {
     fr: string;
     de: string;
   };
+   descripcion3?: {
+    es: string;
+    en: string;
+    fr: string;
+    de: string;
+  };
+   descripcion4?: {
+    es: string;
+    en: string;
+    fr: string;
+    de: string;
+  };
+   descripcion5?: {
+    es: string;
+    en: string;
+    fr: string;
+    de: string;
+  };
   imagen: string;
   fecha: {
     es: string;
@@ -57,8 +75,54 @@ export const noticias: Noticia[] = [
       en: "July 4–5, 2025",
       fr: "4‑5 Juillet 2025",
       de: "4.–5. Juli 2025"
+    },
+  },
+  {
+    id: "2",
+    titulo: {
+      es: "Confirmación de recaudación benéfica y rueda de prensa",
+      en: "Charity proceeds confirmation and press conference",
+      fr: "Confirmation des fonds caritatifs et conférence de presse",
+      de: "Bestätigung der Spendeneinnahmen und Pressekonferenz"
+    },
+    descripcion: {
+      es: "Time Fades Away Events  se complace al confirmar con el acuerdo firmado entre ambas partes, en comunicarles/comunicaros, que TODA LA RECAUDACIÓN DE ESTE EVENTO SERÁ RECEPCIONADA para sus necesitados fines benéficos y solidarios.",
+      en: "Time Fades Away Events is pleased to confirm, with the agreement signed by both parties, that ALL PROCEEDS FROM THIS EVENT WILL BE RECEIVED for its much-needed charitable and solidarity purposes.",
+      fr: "Time Fades Away Events a le plaisir de confirmer, avec l'accord signé entre les deux parties, que TOUS LES FONDS RECUEILLIS LORS DE CET ÉVÉNEMENT SERONT AFFECTÉS à ses nécessaires objectifs caritatifs et solidaires.",
+      de: "Time Fades Away Events freut sich, mit der von beiden Parteien unterzeichneten Vereinbarung bestätigen zu können, dass ALLE EINNAHMEN AUS DIESER VERANSTALTUNG für die dringend benötigten wohltätigen und solidarischen Zwecke verwendet werden."
+    },
+    descripcion2: {
+      es: "Gracias, Dª Eva García Socías, por su gentileza y actitud.",
+      en: "Thank you, Ms. Eva García Socías, for your kindness and attitude.",
+      fr: "Merci, Mme Eva García Socías, pour votre gentillesse et votre attitude.",
+      de: "Vielen Dank, Frau Eva García Socías, für Ihre Freundlichkeit und Haltung."
+    },
+     descripcion3: {
+      es: "Nos vemos en la rueda de prensa, de Mallorca, el próximo 24/10/25, en la Sala Zero del local ES GREMI.",
+      en: "See you at the press conference in Mallorca on 24/10/25, at the Sala Zero of the ES GREMI venue.",
+      fr: "Rendez-vous à la conférence de presse à Majorque le 24/10/25, dans la salle Zero du local ES GREMI.",
+      de: "Wir sehen uns auf der Pressekonferenz in Mallorca am 24.10.25 in der Sala Zero des Lokals ES GREMI." 
+    },
+    descripcion4: {
+      es: "Ramón Granado. Alberto Felix Carrasco. Magín Payeras.",
+      en: "Ramón Granado. Alberto Felix Carrasco. Magín Payeras.",
+      fr: "Ramón Granado. Alberto Felix Carrasco. Magín Payeras.",
+      de: "Ramón Granado. Alberto Felix Carrasco. Magín Payeras."
+    },
+     descripcion5: {
+      es: "Un cordial Saludo.",
+      en: "Best regards.",
+      fr: "Cordialement.",
+      de: "Mit freundlichen Grüßen."
+    },
+    imagen: "/images/logo/asociacioAsperger.png",
+    fecha: {
+      es: "24 de Octubre de 2025",
+      en: "October 24, 2025",
+      fr: "24 Octope 2025",
+      de: "24. Oktober 2025"
     }
-  }
+  },
 
 
 ];

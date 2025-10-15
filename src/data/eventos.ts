@@ -78,6 +78,18 @@ export interface Evento {
     fr: string;
     de: string;
   };
+   descripcion10?: {
+    es: string;
+    en: string;
+    fr: string;
+    de: string;
+  };
+  descripcion11?: {
+    es: string;
+    en: string;
+    fr: string;
+    de: string;
+  };
   imagen?: string;
   imagenes?: string[];
   mostrarEnLanding: boolean;
@@ -403,16 +415,16 @@ export const eventos: Evento[] = [
     de: "Solidaritäts‑Tribut an <span style=\"color:var(--color-principal)\">Neil Young</span> zu seinem 80. Geburtstag"
   },
   fecha: {
-    es: "7 de noviembre de 2025",
-    en: "November 7, 2025",
-    fr: "7 novembre 2025",
-    de: "7. November 2025"
+    es: "1 de noviembre de 2025",
+    en: "November 1, 2025",
+    fr: "1 novembre 2025",
+    de: "1. November 2025"
   },
   ubicacion: {
-    es: "Teatro de Lloseta, Mallorca",
-    en: "Lloseta Theatre, Mallorca",
-    fr: "Théâtre de Lloseta, Majorque",
-    de: "Theater von Lloseta, Mallorca"
+    es: "Sala Zero, Mallorca",
+    en: "Sala Zero, Mallorca",
+    fr: "Sala Zero, Majorque",
+    de: "Sala Zero, Mallorca"
   },
   descripcion: {
     es: "La Asociación Cultural <span style=\"color:var(--color-principal)\">“Outoftheblueintotheblack”</span>, sin ánimo de lucro y representada por <span style=\"color:var(--color-principal)\">Timefadesawayevents</span>, anuncia con entusiasmo la celebración de un <span style=\"color:var(--color-principal)\">doble evento benéfico</span> en homenaje a <span style=\"color:var(--color-principal)\">Neil Young</span>, con motivo de su 80º aniversario.",
@@ -474,8 +486,20 @@ export const eventos: Evento[] = [
     fr: "<span style=\"color:var(--color-principal)\">Nous invitons les médias, institutions et le public</span> à rejoindre cette initiative, la diffuser et participer activement à un hommage qui unit musique, conscience sociale et espoir.</p><p><span style=\"color:var(--color-principal)\">Parce que la culture peut, et doit, être un outil de changement.</span></p>",
     de: "<span style=\"color:var(--color-principal)\">Wir laden Medien, Institutionen und die Öffentlichkeit</span> ein, sich dieser Initiative anzuschließen, sie zu verbreiten und aktiv an einem Tribut teilzunehmen, der Musik, soziales Bewusstsein und Hoffnung vereint.</p><p><span style=\"color:var(--color-principal)\">Weil Kultur ein Werkzeug des Wandels sein kann und muss.</span></p>"
   },
+   descripcion10: {
+  es: "<span style=\"color:var(--color-principal)\">Este evento se va a realizar en las siguientes ciudades:</span><p>Mallorca: 1 de Noviembre de 2025</p><p>Barcelona: 9 de Noviembre de 2025</p><p>Granada: 12 de Noviembre de 2025</p><p>Gandía: 14 de noviembre de 2025</p><p>Madrid: 16 de Diciembre de 2025</p> ",
+  en: "<span style=\"color:var(--color-principal)\">This event will take place in the following cities:</span><p>Mallorca: November 1, 2025</p><p>Barcelona: November 9, 2025</p><p>Granada: November 12, 2025</p><p>Gandía: November 14, 2025</p><p>Madrid: December 16, 2025</p>",
+  fr: "<span style=\"color:var(--color-principal)\">Cet événement aura lieu dans les villes suivantes :</span><p>Majorque : 1 novembre 2025</p><p>Barcelone : 9 novembre 2025</p><p>Grenade : 12 novembre 2025</p><p>Gandía : 14 novembre 2025</p><p>Madrid : 16 décembre 2025</p>",
+  de: "<span style=\"color:var(--color-principal)\">Diese Veranstaltung findet in folgenden Städten statt:</span><p>Mallorca: 1. November 2025</p><p>Barcelona: 9. November 2025</p><p>Granada: 12. November 2025</p><p>Gandía: 14. November 2025</p><p>Madrid: 16. Dezember 2025</p>"
+  },
+  descripcion11: {
+    es: "<span style=\"color:var(--color-principal)\">Time Fades Away Events</span> se complace al confirmar con el acuerdo firmado entre ambas partes, en comunicarles/comunicaros, que <span style=\"color:var(--color-principal)\">TODA LA RECAUDACIÓN DE ESTE EVENTO SERÁ RECEPCIONADA</span> para sus necesitados fines benéficos y solidarios.<p>Gracias, Dª Eva García Socías, por su gentileza y actitud.</p>Nos vemos en la rueda de prensa, de Mallorca, el próximo 24/10/25, en la Sala Zero del local ES GREMI.<p>Ramón Granado.</p><p>Alberto Felix Carrasco.</p><p>Magín Payeras.<p>Un cordial Saludo.",
+    en: "<span style=\"color:var(--color-principal)\">Time Fades Away Events</span> is pleased to confirm with the signed agreement between both parties, to inform you that <span style=\"color:var(--color-principal)\">ALL PROCEEDS FROM THIS EVENT WILL BE RECEIVED</span> for its much-needed charitable and solidarity purposes.<p>Thank you, Ms. Eva García Socías, for your kindness and attitude.</p>See you at the press conference in Mallorca on 24/10/25, at the Sala Zero of the ES GREMI venue.<p>>Ramón Granado.</p><p>Alberto Felix Carrasco.</p><p>Magín Payeras.<p>Best regards.",
+    fr: "<span style=\"color:var(--color-principal)\">Time Fades Away Events</span> a le plaisir de confirmer par l'accord signé entre les deux parties, de vous informer que <span style=\"color:var(--color-principal)\">TOUS LES PROCEEDS DE CET ÉVÉNEMENT SERONT REÇUS</span> pour ses fins caritatives et solidaires nécessaires.<p>Merci, Mme Eva García Socías, pour votre gentillesse et votre attitude.</p>Rendez-vous à la conférence de presse à Majorque le 24/10/25, dans la salle Zero du local ES GREMI.<p>>Ramón Granado.</p><p>Alberto Felix Carrasco.</p><p>Magín Payeras.<p>Cordialement.",
+    de: "<span style=\"color:var(--color-principal)\">Time Fades Away Events</span> freut sich, Ihnen mit dem unterzeichneten Vertrag zwischen beiden Parteien mitzuteilen, dass <span style=\"color:var(--color-principal)\">ALLE EINNAHMEN AUS DIESER VERANSTALTUNG</span> für ihre dringend benötigten wohltätigen und solidarischen Zwecke ERHALTEN WERDEN.<p>Vielen Dank, Frau Eva García Socías, für Ihre Freundlichkeit und Haltung.</p>Wir sehen uns auf der Pressekonferenz in Mallorca am 24.10.25 in der Sala Zero des Lokals ES GREMI.<p>>Ramón Granado.</p><p>Alberto Felix Carrasco.</p><p>Magín Payeras.<p>Mit freundlichen Grüßen."
+  },
   imagen: "/images/eventos/neilYoung.jpeg",
-  imagenes: [],
+  imagenes: ["/images/logo/asociacioAsperger.png"],
   mostrarEnLanding: true
 }
 ];
