@@ -34,6 +34,7 @@ const NavBar: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => {
   const navLinksRight = [
     { label: t('ourHistory'), href: '/nuestra-historia' },
     { label: t('contact'), href: '/contacto' },
+    { label: t('tickets'), href: 'https://tickets.timefadesawayevents.com/', external: true },
   ];
 
   const navLinkClass = (href: string) =>
@@ -122,11 +123,17 @@ const NavBar: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => {
             </li>
 
             {/* Lado derecho */}
-            {navLinksRight.map(({ label, href }) => (
+            {navLinksRight.map(({ label, href, external }) => (
               <li key={href} className="my-2 md:my-0">
-                <Link href={href} className={navLinkClass(href)}>
-                  {label}
-                </Link>
+                {external ? (
+                  <a href={href} target="_blank" rel="noopener noreferrer" className={navLinkClass(href)}>
+                    {label}
+                  </a>
+                ) : (
+                  <Link href={href} className={navLinkClass(href)}>
+                    {label}
+                  </Link>
+                )}
               </li>
             ))}
 
