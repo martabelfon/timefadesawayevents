@@ -33,8 +33,8 @@ const NavBar: React.FC<{ isScrolled: boolean }> = ({ isScrolled }) => {
 
   const navLinksRight = [
     { label: t('ourHistory'), href: '/nuestra-historia' },
-    { label: t('contact'), href: 'https://tickets.timefadesawayevents.com//contact/', external: true },
-    { label: t('tickets'), href: 'https://tickets.timefadesawayevents.com/', external: true },
+    { label: t('contact'), href: 'https://tickets.timefadesawayevents.com//contact/', external: false },
+    { label: t('tickets'), href: 'https://tickets.timefadesawayevents.com/', external: false },
   ];
 
   const navLinkClass = (href: string) =>
