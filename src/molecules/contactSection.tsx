@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 <section className="w-full flex flex-col items-center justify-center p-4 sm:p-8 order-3">
         <h2 className="text-3xl md:text-4xl font-bold text-[color:var(--color-principal)] mb-8 text-center">{t('titlePage')}</h2>
-        <a href="/contacto">
+          <a href='https://tickets.timefadesawayevents.com//contact/'>
           <AnimatedButton fixedColor="var(--color-principal)" className="mt-4">
             {t('buttonContact')}
           </AnimatedButton>
