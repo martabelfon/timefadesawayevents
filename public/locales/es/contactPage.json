@@ -1,0 +1,18 @@
+{
+    "contact": "Contacta con nosotros",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "sendMessage": "Enviar mensaje",
+    "error1": "Error al enviar",
+    "error2": "Error de servidor",
+    "confirmation": "Mensaje enviado",
+    "status": "Enviando...",
+    "title": "Tú imagínalo, nosotros lo hacemos realidad.",
+    "description1": "¿Tienes dudas o necesitas más información?",
+    "description2": "Completa el formulario y con gusto te ayudaremos. Ya sea que tengas una idea en mente o estés buscando orientación, estamos aquí para asesorarte en lo que necesites.",
+    "description3": "Nos pondremos en contacto contigo a la mayor brevedad posible para brindarte una atención personalizada.",
+    "description4": "Estamos aquí para ayudarte a hacerlo posible.",
+    "buttonContact": "Contáctanos",
+    "titlePage": "¿Quieres contactar con nosotros?"
+}
